@@ -55,6 +55,8 @@ Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. 
 Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 ![Datenacquisation](/pics/data-acquisition.png)
 
+TODO Vorteile/Nachteile der Datensätze erklären
+
 Beispiele aus den Datensätzen sehen wie folgt aus:
 
 | Datensatz          | Geste        | Bild                                                                 |
@@ -74,15 +76,42 @@ TODO Erklärung was ist Impulse Learning
 
 #### Image
 
-#### Transfer Learning
+Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut um TODO
 
+#### Transfer Learning
+TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
+
+![Transfer Learning](/pics/transfer-learning.png)
 ## Setup
 
 ### Nano 33 Setup
 
 #### Hardware
+- Arduino Nano 33 BLE Sense Lite Board
+- Arduino Tiny Machine Learning Shield
+- ArduCam OV7675
+- USB A to USB Micro B Kabel (1 Meter)
+
+Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist keine _Sense_ Version benötigt, da keiner der Sensoren benutzt wird.
 
 #### Software
+Benötigt wird für diesen Teil folgendes:
+
+- Arduino Bibliothek aus _Edge Impulse_ (bereitgestellt im TODO Repo)
+- Die TODO.ino Datei aus dem TODO Repo
+- ArduinoIDE (auch eine andere IDE möglich) zum Flashen
+
+Die _TODO.ino_ Datei muss in der ArduinoIDE geöffnet werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** geschen. Dabei sollte die TODO Bibliothek ausgewählt werden.
+
+![Bibliothek hinzufügen](pics/add-library.png)
+
+Zusätzlich müssen noch die öffentlichen Bibliotheken _Arduino_OV767X_ und _ArduinoBLE_ hinzugefügt werden. Das sollte über den _Library Manager_ gemacht werden.
+
+Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss erstmalig der richtige Boardmanager installiert werden und der Port eingestellt werden. Der Boardmanager _Arduino Mbed OS Nano_ wird installiert über **Tools > Board > Board Manager**
+
+![Board Manager](pics/install-board-manager.png)
+
+Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompiliert und geflasht werden.
 
 ### ESP32 + LED Matrix Setup
 
