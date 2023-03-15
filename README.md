@@ -19,6 +19,13 @@
       - [Software](#software-1)
       - [Bauanleitung](#bauanleitung)
   - [Matrix GIFs](#matrix-gifs)
+    - [GIF Erstellung](#gif-erstellung)
+    - [Phase 1](#phase-1)
+    - [Phase 2](#phase-2)
+    - [Phase 3](#phase-3)
+    - [Phase 4](#phase-4)
+    - [Verwendete Tools](#verwendete-tools)
+    - [Was sollte beachtet werden?](#was-sollte-beachtet-werden)
   - [Projektergebnisse](#projektergebnisse)
   - [Troubleshooting](#troubleshooting)
   - [Lessons Learned](#lessons-learned)
@@ -113,6 +120,12 @@ Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss
 
 Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompiliert und geflasht werden.
 
+Die Datei _TODO.ino_ besteht zum Großen Teil aus vorgenerierten Code aus einem Example der exportierten Bibliothen aus Edge Impulse. Diese wurde daraufhin von uns erweitert. Das umfasst drei Teile:
+
+- CircularBuffer Klasse
+- Erweiterung der loop- und setup-Methode
+- Einführung der Methode _mapHandToByte_
+
 ### ESP32 + LED Matrix Setup
 
 #### Hardware 
@@ -122,6 +135,84 @@ Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompilier
 #### Bauanleitung
 
 ## Matrix GIFs
+
+### GIF Erstellung
+Die Erstellung von GIFs sollte in vier Phasen unterteilt werden. 
+In der 1. Phase sollten Ideen gefunden werden. Es empfiehlt sich für ein GIF mehrere Ideen zu haben und diese auch zu erstellen, um am Ende die Möglichkeit zu haben sich für die beste Idee zu entscheiden. 
+In der 2. Phase sollten die Layer erstellt werden. Ein Layer sollte im Ideal Fall nur ein Element eines Bildes enthalten. 
+Nach dem alle Layer erstellt wurden, können diese in der 3. Phase zu einem Bild zusammengefügt werden. 
+In der 4. Phase werden die GIFs erstellt. Hierbei werden die zuvor erstellten Bilder, mit der zugehörigen Zeit nach einander abgespielt. 
+
+Im weiteren Verlauf wird näher auf die Phasen eingegangen. Hierzu wird der Verlauf der beispielhaft an einem GIF erläutert. 
+
+### Phase 1
+Um Ideen für GIFs zu finden können verschiedene Methoden verwendet werden. Ein gesamt Überblick, über das Projekt könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
+Im nächsten Schritt können innerhalb der Gruppe ersten Ideen diskutiert werden und aufgeschrieben werden.
+Sollte keine Inspiration vorhanden sein lohnt es sich im Internet nach ähnlichen Projekten zu suchen, um die Ideenfindung zu vereinfachen. 
+
+### Phase 2
+Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der GIFs identifiziert werden und in alleinstehende Layer eingefügt werden. 
+Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem Layer sein und jede Position sollte ebenfalls ein Layer sein. Zudem sollte der Stein in einem Layer sein und auch jede Position des Steins sollte jeweils in einem Layer sein. 
+So sind in den folgenden Abbildungen die Layer der Schere und der jeweiligen Positionen zu sehen.
+
+<p align="center">
+    <img src="/pics/gif_doc/scissors_layer.png" width="30%"/> 
+</p>
+
+
+Nach dem gleichen Prozess werden die Layer der Steine erstellt, die wie folgt abgebildet werden. 
+
+<p align="center">
+    <img src="/pics/gif_doc/rock_layer.png" width="30%"/> 
+</p>
+
+Nach dem Layer der Hände erstellt wurden, werden die einzelnen Layer des Übergangs zum Ergebnisstatus und das Layer des Ergebnisstatus erstellt. 
+
+<p align="center">
+    <img src="/pics/gif_doc/übergangs_ergebnis_layer.png" width="30%"/> 
+</p>
+
+### Phase 3
+In der 3. Phase werden die Layer, die nur einzelne Elemente von Bildern enthalten zu Bilder zusammengefügt. 
+Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweiligen Positionen zusammengefügt. 
+
+<p align="center">
+    <img src="/pics/gif_doc/rock_scissors.png" width="30%"/> 
+</p>
+
+Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können die Farben der einzelnen Elemente mit der Hintergrundfarbe neu abgestimmt werden. 
+
+<p align="center">
+    <img src="/pics/gif_doc/rock_scissors_farbe.png" width="30%"/> 
+</p>
+
+### Phase 4
+Im letzten Schritt werden die Bilder in die richtige Reihenfolge mit den jeweiligen Zeiten gebracht, um das fertige GIF zu erstellen.
+
+<p align="center">
+    <img src="/pics/gif_doc/rock_scissors_gif.png" width="30%"/> 
+</p>
+
+### Verwendete Tools
+Zur Erstellung der Layer, Bilder und GIFs wurde die Webseite www.pixilart.com verwendet. 
+
+Alternativ kann zum Erstellen der Layer und Bilder die Webseite www.piskelapp.com genutzt werden. Zum Erstellen des GIFs kann alternativ die Webseite imgflip.com/gif-maker genutzt werden. 
+
+### Was sollte beachtet werden?
+**Allgemein:**
+-	Alle Layer sollten dupliziert werden, bevor sie mit anderen zusammengefügt werden. Dadurch können sie in anderen Bilder wieder verwendet werde. 
+-	Gleichmäßige Abstände zum Rand.
+-	Gleichmäßige Größen ähnlicher Elemente, um ein stimmiges Gesamtbild zu erlangen. 
+-	Den Layern sollten knappe und beschreibenden Namenskonventionen gegeben werden. 
+
+
+**Pixilart spezifisch:**
+-	Die maximal Anzahl an Layer ist 75
+-	www.pixilart.com hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
+
+<p align="center">
+    <img src="/pics/gif_doc/zeit_gifs.png" width="30%"/> 
+</p>
 
 ## Projektergebnisse
 
