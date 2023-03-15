@@ -55,6 +55,18 @@ Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. 
 Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 ![Datenacquisation](/pics/data-acquisition.png)
 
+Beispiele aus den Datensätzen sehen wie folgt aus:
+
+| Datensatz          | Geste        | Bild                                                                 |
+|--------------------|--------------|----------------------------------------------------------------------|
+| Grüner Hintergrund | Schere       | <img src="/pics/scissors-green-background-example.png" width="30%"/> |
+| Grüner Hintergrund | Stein        | <img src="/pics/stone-green-background-example.png" width="30%"/>    |
+| Grüner Hintergrund | Papier       | <img src="/pics/paper-green-background-example.png" width="30%"/>    |
+| CGI                | Schere       | <img src="/pics/scissors-cgi-example.png" width="30%"/>              |
+| CGI                | Stein        | <img src="/pics/stone-cgi-example.png" width="30%"/>                 |
+| CGI                | Papier       | <img src="/pics/paper-cgi-example.png" width="30%"/>                 |
+| Eigen              | Hintergrund  | <img src="/pics/nothing-example.png" width="30%"/>                   |
+
 ### Impulse Learning
 TODO Erklärung was ist Impulse Learning
 
