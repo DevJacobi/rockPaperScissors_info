@@ -7,6 +7,9 @@
     - [Vorhergehensweise](#vorhergehensweise)
   - [Edge Impulse](#edge-impulse)
     - [Datenacquisation](#datenacquisation)
+    - [Impulse Learning](#impulse-learning)
+      - [Image](#image)
+      - [Transfer Learning](#transfer-learning)
   - [Setup](#setup)
     - [Nano 33 Setup](#nano-33-setup)
       - [Hardware](#hardware)
@@ -42,14 +45,24 @@ TODO Erklärung zu Edge Impulse
 
 ### Datenacquisation
 Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. Das hat aber zu einer nicht zufriedenstellendem Ergebnis geführt. Daraufhin wurden zwei verschiedene Datenquellen benutzt. Diese wiesen bereits geordnet für jede Geste viele hunderte Daten auf. Ein Datensatz basiert auf echten Händen auf einem grünen Hintergrund. Der andere basiert auf CGI Händen auf einem weißen Hintergrund. Es wurden weitere eigene Bilder hinzugefügt, die einen leeren Hintergrund zeigen. Damit soll das Modell einen leeren Hintergrund erkennen können und später auch so ausgeben. Es wurden 4 Label festgelegt _rock_, _paper_, _scissors_, _nothing_. Jedes Bild hat ein Label korrekt zugewiesen bekommen. Damit ergeben sich folgende Zahlen für die Daten:
+
 - Bilder insgesamt: 3895
-- Schere: 1291
-- Stein: 1284
-- Papier: 1266
-- Bilder mit leerem Hintergrund: 54
+- Schere (scissors): 1291
+- Stein (stone): 1284
+- Papier (paper): 1266
+- Bilder mit leerem Hintergrund (nothing): 54
 
 Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 ![Datenacquisation](/pics/data-acquisition.png)
+
+### Impulse Learning
+TODO Erklärung was ist Impulse Learning
+
+![Impulse Learning](/pics/impulse-learning.png)
+
+#### Image
+
+#### Transfer Learning
 
 ## Setup
 
