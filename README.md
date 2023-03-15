@@ -126,6 +126,32 @@ Die Datei _TODO.ino_ besteht zum Großen Teil aus vorgenerierten Code aus einem 
 - Erweiterung der loop- und setup-Methode
 - Einführung der Methode _mapHandToByte_
 
+**CircularBuffer**
+
+Die _CircularBuffer_ Klasse wurde als Hilfsklasse geschrieben, um sich die letzten _n_ Gesten zu merken und automatisch aus dem Buffer zu schmeißen beim Hinzufügen neuer Werte. Sind alle Werte gleich gibt die _allEqual_ Methode true aus. Mit _push_ lassen sich neue Gesten eintragen und mit _clear_ alle Werte löschen.
+
+<img src="/pics/cirular-buffer.png" height="50%"/>
+
+**mapHandToByte**
+
+Das ist eine Hilfsmethode, welche ein _const char *_ entgegennimmt und ein byte zurückliefert. Der eingehende Parameter stellt dabei die Geste als string dar. Dieser kann sein:
+
+- nothing
+- uncertain
+- rock
+- paper
+- scissors
+
+Die Methode wird benötigt, um über BLE Bytes zu versenden. Dabei werden im ESP32 diese Werte wieder zurückgemapped.
+
+**setup**
+TODO
+
+**loop**
+TODO
+
+<img src="/pics/mapHandToByte.png" width="40%"/>
+
 ### ESP32 + LED Matrix Setup
 
 #### Hardware 
