@@ -10,6 +10,7 @@
     - [Impulse Learning](#impulse-learning)
       - [Image](#image)
       - [Transfer Learning](#transfer-learning)
+  - [Konzept](#konzept)
   - [Setup](#setup)
     - [Nano 33 Setup](#nano-33-setup)
       - [Hardware](#hardware)
@@ -89,6 +90,10 @@ Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling"
 TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
 
 ![Transfer Learning](/pics/transfer-learning.png)
+
+## Konzept
+
+
 ## Setup
 
 ### Nano 33 Setup
@@ -144,13 +149,13 @@ Das ist eine Hilfsmethode, welche ein _const char *_ entgegennimmt und ein byte 
 
 Die Methode wird benötigt, um über BLE Bytes zu versenden. Dabei werden im ESP32 diese Werte wieder zurückgemapped.
 
-**setup**
-TODO
-
-**loop**
-TODO
-
 <img src="/pics/mapHandToByte.png" width="40%"/>
+
+**Anpassungen Setup**
+TODO
+
+**Anpassungen Loop**
+TODO
 
 ### ESP32 + LED Matrix Setup
 
