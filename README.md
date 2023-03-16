@@ -242,7 +242,7 @@ Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können di
 Im letzten Schritt werden die Bilder in die richtige Reihenfolge mit den jeweiligen Zeiten gebracht, um das fertige GIF zu erstellen.
 
 <p align="center">
-    <img src="/pics/gif_doc/rock_scissors_gif.png" width="30%"/> 
+    <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
 </p>
 
 ### Verwendete Tools
@@ -263,7 +263,7 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite www.piskelapp.co
 -	www.pixilart.com hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
 
 <p align="center">
-    <img src="/pics/gif_doc/zeit_gifs.png" width="30%"/> 
+    <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
 </p>
 
 ## Projektergebnisse
