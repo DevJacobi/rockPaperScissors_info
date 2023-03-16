@@ -41,6 +41,7 @@ Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin gab es die Möglichke
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
 
 ### Vorhergehensweise
+TODO
 - Erstellen des Modells in Edge Impulse
 - Zuerst mit eigenen Daten (eigene Hände) genutzt mit jeweils 30 Daten für jede Geste und jeweils 10 Testdatensätze
 - Dann haben wir Datensätze benutzt (2 verschiedene)
@@ -170,6 +171,13 @@ TODO
 **Anpassungen Loop**
 TODO
 
+<img src="/pics/loop-code.png" width="50%">
+
+**Ausgabe**
+TODO
+
+<img src="/pics/detection-output.png" width="50%">
+
 ### ESP32 + LED Matrix Setup
 
 #### Hardware 
@@ -259,8 +267,10 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite www.piskelapp.co
 </p>
 
 ## Projektergebnisse
-TODO 
-- Bilder einfügen/Gifs
+![](/gifs/setup-gif.gif)
+<img src="/pics/setup-idle.jpeg" width="50%"/>
+<img src="/pics/setup-above.jpeg" width="50%"/>
+
 ## Troubleshooting
 TODO
 - Nicht genug RAM -> ArduinoIDE vermutlich liegt das am Compiler
