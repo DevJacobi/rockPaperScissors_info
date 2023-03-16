@@ -80,7 +80,7 @@ Beispiele aus den Datensätzen sehen wie folgt aus:
 ### Impulse Learning
 TODO Erklärung was ist Impulse Learning
 
-![Impulse Learning](/pics/impulse-learning.png)
+<img src="/pics/impulse-learning.png" width="70%"/>
 
 #### Image
 
@@ -89,10 +89,23 @@ Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling"
 #### Transfer Learning
 TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
 
-![Transfer Learning](/pics/transfer-learning.png)
+<img src="/pics/transfer-learning.png" height="50%"/>
 
 ## Konzept
 
+Für das Projekt gibt es ein Konzept, welches die verschiedenen Komponenten und die Kommunikation zwischen ihnen darstellt. Das ist in der folgenden Abbildung zu sehen.
+
+<img src="/pics/konzept.png"/>
+
+Zu sehen sind der _Nano_ und _ESP32_ als Hauptkomponenten. Der _Nano_ ist mit einer Kamera, der OV7675, verbunden. Diese soll jede Sekunde ein Bild der Umgebung aufnehmen. Diese Umgebung sollte eine Hand enthalten die eine der Gesten _Schere_, _Stein_ oder _Papier_ macht. Dieses Bild wird auf dem _Nano_ dann vom trainierten Klassifizierungsmodell klassifiziert und per BLE an den ESP32 gesendet. Das Senden erfolgt erst wenn zwei mal die gleiche Geste erkannt wurde. Zu den Gesten zählen:
+
+- scissors (Schere)
+- stone (Stein)
+- paper (Papier)
+- nothing (Leerer Hintergrund)
+- uncertain (Wenn sich das Modell nicht zu über 50% sicher ist)
+
+Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. Der _ESP32_ empfängt den Wert und wählt für den Computer einen eigenen Wert. Das Ergebnis wird dann mithilfe von vorher erstellten GIFs auf der Matrix LED dargestellt.
 
 ## Setup
 
@@ -115,13 +128,13 @@ Benötigt wird für diesen Teil folgendes:
 
 Die _TODO.ino_ Datei muss in der ArduinoIDE geöffnet werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** geschen. Dabei sollte die TODO Bibliothek ausgewählt werden.
 
-![Bibliothek hinzufügen](pics/add-library.png)
+<img src="/pics/add-library.png" width="50%"/>
 
 Zusätzlich müssen noch die öffentlichen Bibliotheken _Arduino_OV767X_ und _ArduinoBLE_ hinzugefügt werden. Das sollte über den _Library Manager_ gemacht werden.
 
 Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss erstmalig der richtige Boardmanager installiert werden und der Port eingestellt werden. Der Boardmanager _Arduino Mbed OS Nano_ wird installiert über **Tools > Board > Board Manager**
 
-![Board Manager](pics/install-board-manager.png)
+<img src="/pics/install-board-manager.png" width="50%"/>
 
 Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompiliert und geflasht werden.
 
