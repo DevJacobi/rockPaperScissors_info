@@ -259,7 +259,20 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite www.piskelapp.co
 </p>
 
 ## Projektergebnisse
-
+TODO 
+- Bilder einfügen/Gifs
 ## Troubleshooting
+TODO
+- Nicht genug RAM -> ArduinoIDE vermutlich liegt das am Compiler
+- fehlende Libraries HUB75 Matrizen
+- Störsignale
+- Konnektivitätsprobleme innerhalb BLE -> Hardware fehlerhaft -> Beide Komponenten weiter zusammen
+- Speicherprobleme -> ?
 
 ## Lessons Learned
+TODO
+- Awareness für begrenzte Ressourcen -> BLE verbraucht wohl gut RAM; ML muss daher mit einem geringeren Modell auskommen
+- Datensätze mit einfarbigen Hintergrund verlangen dann auch einen simplen Hintergrund zum Erkennen
+- verschiedene IDEs optimieren Code anders -> ArduinoIDE hat Ram mehr optimiert als von VSCode
+- Man braucht viele Daten mit verschiedenen Arten von Gestenmöglichkeiten
+- Farben der GIFs sollten angepasst werden auf die Farben der LED Matrix
