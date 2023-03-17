@@ -190,21 +190,21 @@ TODO
 
 ### GIF Erstellung
 Die Erstellung von GIFs sollte in vier Phasen unterteilt werden. 
-In der 1. Phase sollten Ideen gefunden werden. Es empfiehlt sich für ein GIF mehrere Ideen zu haben und diese auch zu erstellen, um am Ende die Möglichkeit zu haben sich für die beste Idee zu entscheiden. 
-In der 2. Phase sollten die Layer erstellt werden. Ein Layer sollte im Ideal Fall nur ein Element eines Bildes enthalten. 
-Nach dem alle Layer erstellt wurden, können diese in der 3. Phase zu einem Bild zusammengefügt werden. 
-In der 4. Phase werden die GIFs erstellt. Hierbei werden die zuvor erstellten Bilder, mit der zugehörigen Zeit nach einander abgespielt. 
+In der ersten Phase sollten Ideen gefunden werden. Es empfiehlt sich für ein GIF mehrere Ideen zu haben und diese auch umzusetzen, um am Ende die Möglichkeit zu haben sich für die beste Idee zu entscheiden. 
+In der zweiten Phase sollten die Layer erstellt werden, wobei jedes Element eines Bildes  idealerweise in einem Layer platziert werden sollte.
+Nach dem alle Layer erstellt wurden, können diese in der 3. Phase zu einem Gesamtbild zusammengefügt werden. 
+Schließlich werden die Bilder in der 4. Phase in die richtige Reihenfolge gebracht und den passenden Zeitabständen zusammengefügt.
 
-Im weiteren Verlauf wird näher auf die Phasen eingegangen. Hierzu wird der Verlauf der beispielhaft an einem GIF erläutert. 
+Im weiteren Verlauf wird näher auf die Phasen eingegangen. Hierzu wird der Verlauf beispielhaft an einem GIF erläutert. 
 
 ### Phase 1
-Um Ideen für GIFs zu finden können verschiedene Methoden verwendet werden. Ein gesamt Überblick, über das Projekt könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
-Im nächsten Schritt können innerhalb der Gruppe ersten Ideen diskutiert werden und aufgeschrieben werden.
+Um Ideen für GIFs zu finden können verschiedene Methoden, wie Brainstorming verwendet werden. Ein Gesamtüberblick des Projektes könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
+Im nächsten Schritt können innerhalb der Gruppe erste Ideen diskutiert werden.
 Sollte keine Inspiration vorhanden sein lohnt es sich im Internet nach ähnlichen Projekten zu suchen, um die Ideenfindung zu vereinfachen. 
 
 ### Phase 2
-Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der GIFs identifiziert werden und in alleinstehende Layer eingefügt werden. 
-Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem Layer sein und jede Position sollte ebenfalls ein Layer sein. Zudem sollte der Stein in einem Layer sein und auch jede Position des Steins sollte jeweils in einem Layer sein. 
+Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der Bilder identifiziert und in alleinstehende Layer platziert werden. 
+Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem alleinstehenden Layer sein. Zudem sollte jede Position, der Schere ebenfalls in einem alleinstehenden Layer sein. Das selbe Prinzip sollte für den Stein angewandt werden.
 So sind in den folgenden Abbildungen die Layer der Schere und der jeweiligen Positionen zu sehen.
 
 <p align="center">
@@ -218,15 +218,15 @@ Nach dem gleichen Prozess werden die Layer der Steine erstellt, die wie folgt ab
     <img src="/pics/gif_doc/rock_layer.png" width="30%"/> 
 </p>
 
-Nach dem Layer der Hände erstellt wurden, werden die einzelnen Layer des Übergangs zum Ergebnisstatus und das Layer des Ergebnisstatus erstellt. 
+Nachdem die Layer der Hände erstellt wurden, werden die einzelnen Layer des Übergangs zum Ergebnisstatus und das Layer des Ergebnisstatus erstellt. 
 
 <p align="center">
     <img src="/pics/gif_doc/übergangs_ergebnis_layer.png" width="30%"/> 
 </p>
 
 ### Phase 3
-In der 3. Phase werden die Layer, die nur einzelne Elemente von Bildern enthalten zu Bilder zusammengefügt. 
-Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweiligen Positionen zusammengefügt. 
+In der 3. Phase werden die Layer  zu Bildern zusammengefügt. 
+Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweils zugehörigen Positionen zusammengefügt. 
 
 <p align="center">
     <img src="/pics/gif_doc/rock_scissors.png" width="30%"/> 
@@ -239,28 +239,27 @@ Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können di
 </p>
 
 ### Phase 4
-Im letzten Schritt werden die Bilder in die richtige Reihenfolge mit den jeweiligen Zeiten gebracht, um das fertige GIF zu erstellen.
+Im letzten Schritt werden die Bilder in die richtige Reihenfolge gebracht und ihnen werden die passenden Zeitabständen gegeben, um das fertige GIF zu erstellen.
 
 <p align="center">
     <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
 </p>
 
 ### Verwendete Tools
-Zur Erstellung der Layer, Bilder und GIFs wurde die Webseite www.pixilart.com verwendet. 
+Zur Erstellung der Layer, Bilder und GIFs wurde die Webseite [pixelart](https://www.pixilart.com/) verwendet. 
 
-Alternativ kann zum Erstellen der Layer und Bilder die Webseite www.piskelapp.com genutzt werden. Zum Erstellen des GIFs kann alternativ die Webseite imgflip.com/gif-maker genutzt werden. 
+Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](https://www.piskelapp.com/) genutzt werden. Zum Erstellen des GIFs kann alternativ die Webseite [imgflip](https://imgflip.com/gif-maker) genutzt werden. 
 
 ### Was sollte beachtet werden?
 **Allgemein:**
 -	Alle Layer sollten dupliziert werden, bevor sie mit anderen zusammengefügt werden. Dadurch können sie in anderen Bilder wieder verwendet werde. 
 -	Gleichmäßige Abstände zum Rand.
 -	Gleichmäßige Größen ähnlicher Elemente, um ein stimmiges Gesamtbild zu erlangen. 
--	Den Layern sollten knappe und beschreibenden Namenskonventionen gegeben werden. 
-
+-	Den Layern sollten knappe und beschreibenden Namenskonventionen gegeben werden.  
 
 **Pixilart spezifisch:**
 -	Die maximal Anzahl an Layer ist 75
--	www.pixilart.com hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
+-	[pixelart](https://www.pixilart.com/) hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
 
 <p align="center">
     <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
