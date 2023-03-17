@@ -51,7 +51,9 @@ Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von 
 Matrix TODO (vielleicht Konsti ein paar Worte dazu)
 
 ## Edge Impulse
-TODO Erklärung zu Edge Impulse
+Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für Edge-Geräte wie Mikrocontroller und Sensoren optimiert sind. Die Plattform bietet eine integrierte Umgebung zum Sammeln von Daten, zum Erstellen von Modellen und zum Bereitstellen von Inferenz-Engines direkt auf den Edge-Geräten. Dadurch können Entwickler und Ingenieure schnell und einfach Edge-Modelle für eine Vielzahl von Anwendungen erstellen, darunter Bilderkennung, Spracherkennung, Vibrationserkennung und mehr. Edge Impulse unterstützt eine breite Palette von Edge-Hardware-Plattformen und bietet auch eine Reihe von Entwicklungs-Tools und Bibliotheken für die Integration in bestehende Systeme.
+
+Wir haben diese Platform genutzt, um unser Modell mit Daten zu trainieren und zu optimieren.
 
 ### Datenacquisation
 Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. Das hat aber zu einer nicht zufriedenstellendem Ergebnis geführt. Daraufhin wurden zwei verschiedene Datenquellen benutzt. Diese wiesen bereits geordnet für jede Geste viele hunderte Daten auf. Ein Datensatz basiert auf echten Händen auf einem grünen Hintergrund. Der andere basiert auf CGI Händen auf einem weißen Hintergrund. Es wurden weitere eigene Bilder hinzugefügt, die einen leeren Hintergrund zeigen. Damit soll das Modell einen leeren Hintergrund erkennen können und später auch so ausgeben. Es wurden 4 Label festgelegt _rock_, _paper_, _scissors_, _nothing_. Jedes Bild hat ein Label korrekt zugewiesen bekommen. Damit ergeben sich folgende Zahlen für die Daten:
