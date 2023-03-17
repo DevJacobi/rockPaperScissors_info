@@ -41,13 +41,14 @@ Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin gab es die Möglichke
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
 
 ### Vorhergehensweise
-TODO
-- Erstellen des Modells in Edge Impulse
-- Zuerst mit eigenen Daten (eigene Hände) genutzt mit jeweils 30 Daten für jede Geste und jeweils 10 Testdatensätze
-- Dann haben wir Datensätze benutzt (2 verschiedene)
-- Das Modell auf Nano 33 gespielt und getestet
-- LED Matrix
-- BLE zur Kommunikation
+Das Projekt wurde in drei Arbeitspakete unterteilt:
+
+1. Machinelearning Modell trainieren
+2. Modell als Bibliothek auf dem Nano einbinden und Bilder erstellen lassen
+3. BLE Verbindung herstellen und Grafiken erstellen und anzeigen
+
+Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu funktionieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
+Matrix TODO (vielleicht Konsti ein paar Worte dazu)
 
 ## Edge Impulse
 TODO Erklärung zu Edge Impulse
