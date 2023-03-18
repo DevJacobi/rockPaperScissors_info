@@ -10,6 +10,7 @@
     - [2.2 Impulse Learning](#22-impulse-learning)
       - [2.2.1 Image](#221-image)
       - [2.2.2 Transfer Learning](#222-transfer-learning)
+      - [2.3 Deploy](#23-deploy)
   - [3 Konzept](#3-konzept)
   - [4 Setup](#4-setup)
     - [4.1 Nano 33 Setup](#41-nano-33-setup)
@@ -105,6 +106,8 @@ TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
 
 <img src="/pics/transfer-learning.png" height="50%"/>
 
+### 2.3 Deploy
+TODO
 ## 3 Konzept
 
 Für das Projekt gibt es ein Konzept, welches die verschiedenen Komponenten und die Kommunikation zwischen ihnen darstellt. Das ist in der folgenden Abbildung zu sehen.
@@ -179,7 +182,7 @@ Die Methode wird benötigt, um über BLE Bytes zu versenden. Dabei werden im ESP
 <img src="/pics/mapHandToByte.png" width="40%"/>
 
 **Anpassungen Setup**
-TODO
+Im Setup gibt es nur die Anpassung zum vorgenerierten Code, dass eine BLE Verbindung aktiviert und aufgebaut wird. Dafür wird die Methode _connectToPeripheral_ aufgerufen, welche den Service vom ESP aufruft und zu ihm verbindet.
 
 **Anpassungen Loop**
 Die Loop-Methode wurde zum Größtenteil vorgeneriert. Wir haben an dem Punkt angesetzt, wo die Klassifizierung ausgegeben wird. Hier hinzugefügt wurden Variablen, um festzlegen wie hoch der Wert eines Labels sein muss, um als erkannt zu gelten (_UNCERTAIN_BORDER_). Es wird zuerst herausgefunden, welche der Werte der höchste ist, und ob dieser die _UNCERTAIN_BORDER_ überschreitet. Wird zwei mal die gleiche Geste erkannt, wird diese über _BLE_ versendet. Dabei wird geprüft, ob noch eine Verbindung besteht und eine neue Verbindung bei Bedarf aufgebaut. 
