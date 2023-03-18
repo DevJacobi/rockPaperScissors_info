@@ -51,7 +51,7 @@ Das Projekt wurde in drei Arbeitspakete unterteilt:
 2. Modell als Bibliothek auf dem Nano einbinden und Bilder erstellen lassen
 3. BLE Verbindung herstellen und Grafiken erstellen und anzeigen
 
-Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu funktionieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
+Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu harmonieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
 Matrix TODO (vielleicht Konsti ein paar Worte dazu)
 
 ## Edge Impulse
@@ -60,7 +60,7 @@ Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für E
 Wir haben diese Platform genutzt, um unser Modell mit Daten zu trainieren und zu optimieren.
 
 ### Datenacquisation
-Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. Das hat aber zu einer nicht zufriedenstellendem Ergebnis geführt. Daraufhin wurden zwei verschiedene Datenquellen benutzt. Diese wiesen bereits geordnet für jede Geste viele hunderte Daten auf. Ein Datensatz basiert auf echten Händen auf einem grünen Hintergrund. Der andere basiert auf CGI Händen auf einem weißen Hintergrund. Es wurden weitere eigene Bilder hinzugefügt, die einen leeren Hintergrund zeigen. Damit soll das Modell einen leeren Hintergrund erkennen können und später auch so ausgeben. Es wurden 4 Label festgelegt _rock_, _paper_, _scissors_, _nothing_. Jedes Bild hat ein Label korrekt zugewiesen bekommen. Damit ergeben sich folgende Zahlen für die Daten:
+Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. Das hat aber zu einer nicht zufriedenstellendem Ergebnis geführt. Daraufhin wurden zwei verschiedene Datenquellen benutzt. Diese wiesen, bereits geordnet für jede Geste, viele hunderte Daten auf. Ein Datensatz basiert auf echten Händen auf einem grünen Hintergrund [(Quelle)](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors). Der andere basiert auf CGI Händen auf einem weißen Hintergrund [(Quelle)](https://www.kaggle.com/datasets/eng0mohamed0nabil/rock-paper-scissors-dataset). Es wurden weitere eigene Bilder hinzugefügt, die einen leeren Hintergrund zeigen. Damit soll das Modell einen leeren Hintergrund erkennen können und später auch so ausgeben. Es wurden 4 Label festgelegt _rock_, _paper_, _scissors_, _nothing_. Jedes Bild hat ein Label korrekt zugewiesen bekommen. Damit ergeben sich folgende Zahlen für die Daten:
 
 - Bilder insgesamt: 3895
 - Schere (scissors): 1291
@@ -71,9 +71,14 @@ Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. 
 Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 ![Datenacquisation](/pics/data-acquisition.png)
 
-TODO Vorteile/Nachteile der Datensätze erklären
+**Vor- und Nachteile der Datensätze**
+| Datensatz | Vorteile | Nachteile |
+| - | - | - |
+| Anfängliche eigene Daten | Keine Vorteile | Zu wenig Daten, zu wenig Variation in den Winkeln, Hintergrund nicht einfarbig |
+| Grüner Hintergrund | Große Varianz der Daten | Nur die Hand von einer Person. Könnte zu overfitting für weiße männliche Hände führen |
+| CGI Hände | Verschiedene "Personen" und große Varianz | Manchmal uneindeutige Gesten |
 
-Beispiele aus den Datensätzen sehen wie folgt aus:
+**Beispiele**
 
 | Datensatz          | Geste        | Bild                                                                 |
 |--------------------|--------------|----------------------------------------------------------------------|
