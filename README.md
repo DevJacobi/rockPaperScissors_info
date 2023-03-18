@@ -77,6 +77,7 @@ Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 | Anfängliche eigene Daten | Keine Vorteile | Zu wenig Daten, zu wenig Variation in den Winkeln, Hintergrund nicht einfarbig |
 | Grüner Hintergrund | Große Varianz der Daten | Nur die Hand von einer Person. Könnte zu overfitting für weiße männliche Hände führen |
 | CGI Hände | Verschiedene "Personen" und große Varianz | Manchmal uneindeutige Gesten |
+| Neue eigene Daten | Leere Hintergründe jetzt trainierbar | Keine Nachteile |
 
 **Beispiele**
 
@@ -181,12 +182,12 @@ Die Methode wird benötigt, um über BLE Bytes zu versenden. Dabei werden im ESP
 TODO
 
 **Anpassungen Loop**
-TODO
+Die Loop-Methode wurde zum Größtenteil vorgeneriert. Wir haben an dem Punkt angesetzt, wo die Klassifizierung ausgegeben wird. Hier hinzugefügt wurden Variablen, um festzlegen wie hoch der Wert eines Labels sein muss, um als erkannt zu gelten (_UNCERTAIN_BORDER_). Es wird zuerst herausgefunden, welche der Werte der höchste ist, und ob dieser die _UNCERTAIN_BORDER_ überschreitet. Wird zwei mal die gleiche Geste erkannt, wird diese über _BLE_ versendet. Dabei wird geprüft, ob noch eine Verbindung besteht und eine neue Verbindung bei Bedarf aufgebaut. 
 
 <img src="/pics/loop-code.png" width="50%">
 
 **Ausgabe**
-TODO
+Die Ausgabe, die über den Serial-Monitor zu betrachten ist, gibt Informationen über die Klassifizierung aus und die Konnektivität zum _ESP32_. Bei der Klassifizierung ist möglich _nothing_, _paper_, _rock_ und _scissors_. Ist eine der Werte nicht höher als _0.5_ wird _uncertain_ ausgegeben. Die Ausgabe informiert zu aller erst jedoch über die Konnektivität zum _ESP32_. Danach wird ausgegeben, wenn ein Foto aufgenommen wird. Danach der Klassifizierungsstand. Sollte zwei mal der gleiche Wert gelesen werden, wird auch das ausgegeben. Da hierbei geprüft wird, ob noch eine Verbindung besteht, wird der Stand über die Konnektivität wieder ausgegeben.
 
 <img src="/pics/detection-output.png" width="50%">
 
