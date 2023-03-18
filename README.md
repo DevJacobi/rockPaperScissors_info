@@ -1,50 +1,50 @@
 # Projektdokumentation *Nano RPS*
 
 - [Projektdokumentation *Nano RPS*](#projektdokumentation-nano-rps)
-  - [Einführung](#einführung)
-    - [Motivation](#motivation)
-    - [Zielstellung](#zielstellung)
-    - [Vorhergehensweise](#vorhergehensweise)
-  - [Edge Impulse](#edge-impulse)
-    - [Datenacquisation](#datenacquisation)
-    - [Impulse Learning](#impulse-learning)
-      - [Image](#image)
-      - [Transfer Learning](#transfer-learning)
-  - [Konzept](#konzept)
-  - [Setup](#setup)
-    - [Nano 33 Setup](#nano-33-setup)
-      - [Hardware](#hardware)
-      - [Software](#software)
-    - [ESP32 + LED Matrix Setup](#esp32--led-matrix-setup)
-      - [Hardware](#hardware-1)
-      - [Software](#software-1)
-      - [Bauanleitung](#bauanleitung)
-  - [Matrix GIFs](#matrix-gifs)
-    - [GIF Erstellung](#gif-erstellung)
-    - [Phase 1](#phase-1)
-    - [Phase 2](#phase-2)
-    - [Phase 3](#phase-3)
-    - [Phase 4](#phase-4)
-    - [Verwendete Tools](#verwendete-tools)
-    - [Was sollte beachtet werden?](#was-sollte-beachtet-werden)
-  - [Projektergebnisse](#projektergebnisse)
-  - [Troubleshooting](#troubleshooting)
-  - [Lessons Learned](#lessons-learned)
-    - [Begrenzte Ressourcen](#begrenzte-ressourcen)
-    - [Einfarbiger Hintergrund](#einfarbiger-hintergrund)
-    - [Verschiedene IDEs](#verschiedene-ides)
-    - [Viele Datensätze](#viele-datensätze)  
+  - [1 Einführung](#1-einführung)
+    - [1.1 Motivation](#11-motivation)
+    - [1.2 Zielstellung](#12-zielstellung)
+    - [1.3 Vorhergehensweise](#13-vorhergehensweise)
+  - [2 Edge Impulse](#2-edge-impulse)
+    - [2.1 Datenacquisation](#21-datenacquisation)
+    - [2.2 Impulse Learning](#22-impulse-learning)
+      - [2.2.1 Image](#221-image)
+      - [2.2.2 Transfer Learning](#222-transfer-learning)
+  - [3 Konzept](#3-konzept)
+  - [4 Setup](#4-setup)
+    - [4.1 Nano 33 Setup](#41-nano-33-setup)
+      - [4.1.1 Hardware](#411-hardware)
+      - [4.1.2 Software](#412software)
+    - [4.2 ESP32 + LED Matrix Setup](#42-esp32--led-matrix-setup)
+      - [4.2.1 Hardware](#421-hardware-1)
+      - [4.2.2 Software](#422-software-1)
+      - [4.2.3 Bauanleitung](#423-bauanleitung)
+  - [5 Matrix GIFs](#5-matrix-gifs)
+    - [5.1 GIF Erstellung](#51-gif-erstellung)
+    - [5.2 Phase 1](#52-phase-1)
+    - [5.3 Phase 2](#53-phase-2)
+    - [5.4 Phase 3](#54-phase-3)
+    - [5.5 Phase 4](#55-phase-4)
+    - [5.6 Verwendete Tools](#56-verwendete-tools)
+    - [5.7 Was sollte beachtet werden?](#57-was-sollte-beachtet-werden)
+  - [6 Projektergebnisse](#6-projektergebnisse)
+  - [7 Troubleshooting](#7-troubleshooting)
+  - [8 Lessons Learned](#8-lessons-learned)
+    - [8.1 Begrenzte Ressourcen](#81-begrenzte-ressourcen)
+    - [8.2 Einfarbiger Hintergrund](#82-einfarbiger-hintergrund)
+    - [8.3 Verschiedene IDEs](#83-verschiedene-ides)
+    - [8.4 Viele Datensätze](#84-viele-datensätze)  
 ---
 
-## Einführung
+## 1 Einführung
 
-### Motivation
+### 1.1 Motivation
 Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin gab es die Möglichkeit in zwei Wochen ein Machinelearning Projekt mit Arduinobauteilen aufzusetzen. Dafür haben wir uns für Bilderkennung, LED Matrizen und der Kommunikation verschiedener Boards über Bluetooth Low Energy (BLE) interessiert. TODO noch mehr ergänzen
 
-### Zielstellung
+### 1.2 Zielstellung
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
 
-### Vorhergehensweise
+### 1.3 Vorhergehensweise
 Das Projekt wurde in drei Arbeitspakete unterteilt:
 
 1. Machinelearning Modell trainieren
@@ -54,12 +54,12 @@ Das Projekt wurde in drei Arbeitspakete unterteilt:
 Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu harmonieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
 Matrix TODO (vielleicht Konsti ein paar Worte dazu)
 
-## Edge Impulse
+## 2 Edge Impulse
 Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für Edge-Geräte wie Mikrocontroller und Sensoren optimiert sind. Die Plattform bietet eine integrierte Umgebung zum Sammeln von Daten, zum Erstellen von Modellen und zum Bereitstellen von Inferenz-Engines direkt auf den Edge-Geräten. Dadurch können Entwickler und Ingenieure schnell und einfach Edge-Modelle für eine Vielzahl von Anwendungen erstellen, darunter Bilderkennung, Spracherkennung, Vibrationserkennung und mehr. Edge Impulse unterstützt eine breite Palette von Edge-Hardware-Plattformen und bietet auch eine Reihe von Entwicklungs-Tools und Bibliotheken für die Integration in bestehende Systeme.
 
 Wir haben diese Platform genutzt, um unser Modell mit Daten zu trainieren und zu optimieren.
 
-### Datenacquisation
+### 2.1 Datenacquisation
 Für die Daten wurden zuerst eigenständig Bilder von unseren Händen erstellt. Das hat aber zu einer nicht zufriedenstellendem Ergebnis geführt. Daraufhin wurden zwei verschiedene Datenquellen benutzt. Diese wiesen, bereits geordnet für jede Geste, viele hunderte Daten auf. Ein Datensatz basiert auf echten Händen auf einem grünen Hintergrund [(Quelle)](https://www.kaggle.com/datasets/drgfreeman/rockpaperscissors). Der andere basiert auf CGI Händen auf einem weißen Hintergrund [(Quelle)](https://www.kaggle.com/datasets/eng0mohamed0nabil/rock-paper-scissors-dataset). Es wurden weitere eigene Bilder hinzugefügt, die einen leeren Hintergrund zeigen. Damit soll das Modell einen leeren Hintergrund erkennen können und später auch so ausgeben. Es wurden 4 Label festgelegt _rock_, _paper_, _scissors_, _nothing_. Jedes Bild hat ein Label korrekt zugewiesen bekommen. Damit ergeben sich folgende Zahlen für die Daten:
 
 - Bilder insgesamt: 3895
@@ -90,21 +90,21 @@ Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 | CGI                | Papier       | <img src="/pics/paper-cgi-example.png" width="30%"/>                 |
 | Eigen              | Hintergrund  | <img src="/pics/nothing-example.png" width="30%"/>                   |
 
-### Impulse Learning
+### 2.2 Impulse Learning
 TODO Erklärung was ist Impulse Learning
 
 <img src="/pics/impulse-learning.png" width="70%"/>
 
-#### Image
+#### 2.2.1 Image
 
 Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut um TODO
 
-#### Transfer Learning
+#### 2.2.2 Transfer Learning
 TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
 
 <img src="/pics/transfer-learning.png" height="50%"/>
 
-## Konzept
+## 3 Konzept
 
 Für das Projekt gibt es ein Konzept, welches die verschiedenen Komponenten und die Kommunikation zwischen ihnen darstellt. Das ist in der folgenden Abbildung zu sehen.
 
@@ -120,11 +120,11 @@ Zu sehen sind der _Nano_ und _ESP32_ als Hauptkomponenten. Der _Nano_ ist mit ei
 
 Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. Der _ESP32_ empfängt den Wert und wählt für den Computer einen eigenen Wert. Das Ergebnis wird dann mithilfe von vorher erstellten GIFs auf der Matrix LED dargestellt.
 
-## Setup
+## 4 Setup
 
-### Nano 33 Setup
+### 4.1 Nano 33 Setup
 
-#### Hardware
+#### 4.1.1Hardware
 - Arduino Nano 33 BLE Sense Lite Board
 - Arduino Tiny Machine Learning Shield
 - ArduCam OV7675
@@ -132,7 +132,7 @@ Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. 
 
 Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist keine _Sense_ Version benötigt, da keiner der Sensoren benutzt wird.
 
-#### Software
+#### 4.1.2 Software
 Benötigt wird für diesen Teil folgendes:
 
 - Arduino Bibliothek aus _Edge Impulse_ (bereitgestellt im TODO Repo)
@@ -190,17 +190,17 @@ TODO
 
 <img src="/pics/detection-output.png" width="50%">
 
-### ESP32 + LED Matrix Setup
+### 4.2 ESP32 + LED Matrix Setup
 
-#### Hardware 
+#### 4.2.1 Hardware 
 
-#### Software
+#### 4.2.2 Software
 
-#### Bauanleitung
+#### 4.2.3 Bauanleitung
 
-## Matrix GIFs
+## 5 Matrix GIFs
 
-### GIF Erstellung
+### 5.1 GIF Erstellung
 Die Erstellung von GIFs sollte in vier Phasen unterteilt werden. 
 In der ersten Phase sollten Ideen gefunden werden. Es empfiehlt sich für ein GIF mehrere Ideen zu haben und diese auch umzusetzen, um am Ende die Möglichkeit zu haben sich für die beste Idee zu entscheiden. 
 In der zweiten Phase sollten die Layer erstellt werden, wobei jedes Element eines Bildes  idealerweise in einem Layer platziert werden sollte.
@@ -209,12 +209,12 @@ Schließlich werden die Bilder in der 4. Phase in die richtige Reihenfolge gebra
 
 Im weiteren Verlauf wird näher auf die Phasen eingegangen. Hierzu wird der Verlauf beispielhaft an einem GIF erläutert. 
 
-### Phase 1
+### 5.2 Phase 1
 Um Ideen für GIFs zu finden können verschiedene Methoden, wie Brainstorming verwendet werden. Ein Gesamtüberblick des Projektes könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
 Im nächsten Schritt können innerhalb der Gruppe erste Ideen diskutiert werden.
 Sollte keine Inspiration vorhanden sein lohnt es sich im Internet nach ähnlichen Projekten zu suchen, um die Ideenfindung zu vereinfachen. 
 
-### Phase 2
+### 5.3 Phase 2
 Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der Bilder identifiziert und in alleinstehende Layer platziert werden. 
 Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem alleinstehenden Layer sein. Zudem sollte jede Position, der Schere ebenfalls in einem alleinstehenden Layer sein. Das selbe Prinzip sollte für den Stein angewandt werden.
 So sind in den folgenden Abbildungen die Layer der Schere und der jeweiligen Positionen zu sehen.
@@ -236,7 +236,7 @@ Nachdem die Layer der Hände erstellt wurden, werden die einzelnen Layer des Üb
     <img src="/pics/gif_doc/übergangs_ergebnis_layer.png" width="30%"/> 
 </p>
 
-### Phase 3
+### 5.4 Phase 3
 In der 3. Phase werden die Layer  zu Bildern zusammengefügt. 
 Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweils zugehörigen Positionen zusammengefügt. 
 
@@ -250,19 +250,19 @@ Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können di
     <img src="/pics/gif_doc/rock_scissors_farbe.png" width="30%"/> 
 </p>
 
-### Phase 4
+### 5.5 Phase 4
 Im letzten Schritt werden die Bilder in die richtige Reihenfolge gebracht und ihnen werden die passenden Zeitabständen gegeben, um das fertige GIF zu erstellen.
 
 <p align="center">
     <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
 </p>
 
-### Verwendete Tools
+### 5.6 Verwendete Tools
 Zur Erstellung der Layer, Bilder und GIFs wurde die Webseite [pixelart](https://www.pixilart.com/) verwendet. 
 
 Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](https://www.piskelapp.com/) genutzt werden. Zum Erstellen des GIFs kann alternativ die Webseite [imgflip](https://imgflip.com/gif-maker) genutzt werden. 
 
-### Was sollte beachtet werden?
+### 5.7 Was sollte beachtet werden?
 **Allgemein:**
 -	Alle Layer sollten dupliziert werden, bevor sie mit anderen zusammengefügt werden. Dadurch können sie in anderen Bilder wieder verwendet werde. 
 -	Gleichmäßige Abstände zum Rand.
@@ -277,41 +277,41 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](http
     <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
 </p>
 
-## Projektergebnisse
+## 6 Projektergebnisse
 ![](/gifs/setup-gif.gif)
 <img src="/pics/setup-idle.jpeg" width="50%"/>
 <img src="/pics/setup-above.jpeg" width="50%"/>
 
-## Troubleshooting
+## 7 Troubleshooting
 
-### Speicherprobleme
+### 7.1 Speicherprobleme
 BLE und und das Klassifizieren von Bildern zieht beträchtlich RAM. Das kann dazu führen, dass nach der Aufnahme eines Bildes nicht genug Ram für das Klassifizierung bereitssteht. Im Laufe des Projekts wurde daher das Trainingsmodell auf das mit der geringsten RAM-Nutzung zurückgegriffen. Wir konnten herausfinden, dass die Programmierumgebung einen Einfluss auf die Optimierung des Codes hat und somit auf die RAM-Nutzung. Anfänglich haben wir mit VSCode gearbeitet, sind dann aber testweise auf die ArduinoIDE gewechselt. Hier wird wahrscheinlich ein anderer Compiler benutzt, der anders optimiert. Wir empfehlen daher bei RAM-Problemen die ArduinoIDE zu verwenden bzw. andere Compieler auszuprobieren.
 
 Zusätlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu verzichten, da auch diese RAM fressen.
 
-### TODO Konsti fehlende Libraries HUB75 Matrizen
+### 7.2 TODO Konsti fehlende Libraries HUB75 Matrizen
 
-### TODO Konsti Störsignale
+### 7.3 TODO Konsti Störsignale
 
-### Verbindungsabbrüche zwischen Nano und ESP32
+### 7.4 Verbindungsabbrüche zwischen Nano und ESP32
 Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinander zu halten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird solange eine Verbindung versucht aufzubauen bis es klappt.
 
-### Gesten werden nicht richtig erkannt
+### 7.5 Gesten werden nicht richtig erkannt
 Das Modell wurde auf Datensätzen mit einem simplen Hintergrund trainiert. Das sollte auch nicht auf kompliziertere Hintergrunde angepasst werden. Dafür reicht der Nano nicht aus. Werden die Gesten nicht richtig erkannt, sollte darauf geachtet werden ein einfarbigen Hintergrund zu nehmen.
 
-## Lessons Learned
+## 8 Lessons Learned
 
-### Begrenzte Ressourcen
+### 8.1 Begrenzte Ressourcen
 BLE verbraucht mehr Ressourcen als gedacht. Das zusammen mit genauso hungrigen Prozessen wie der Klassifizierung von Bildern zu verbinden ist bei wenig RAM-Verfügbarkeit keine gute Idee. Es sollte für solche Projekte auf Komponenten mit ausreichend RAM zurückgegriffen werden. Die Konsequenz davon ist, dass ein anderes Trainingsmodell für die Daten von Nöten ist.
 
-### Einfarbiger Hintergrund
+### 8.2 Einfarbiger Hintergrund
 Ein einfarbiger Hintergrund lässt das Modell deutlich leichter Gesten erkennen, da die Hand das einzige auf dem Bild ist, welches vom Hintergrund abweichen kann. Das ist für eine speicherschwache Komponente, wie dem Nano, eine sehr gute Wahl.
 
-### Verschiedene IDEs
+### 8.3 Verschiedene IDEs
 Wir konnten herausfinden, dass VSCode grundsätzlich mehr Speicher verbrauchen lässt bei den Komponenten als wenn der Code mit beispielweise der ArduinoIDE kompiliert wurde. Wir schließen daraus, das verschiedene Compiler genutzt werden. Es gilt also Herauszufinden, welche Compiler wirklich geeignet sind für das Kompilieren von Arduino-Programmen.
 
-### Viele Datensätze
+### 8.4 Viele Datensätze
 Am Anfang des Projekts haben wir mit wenig Daten (~100 Bildern) gearbeitet und schlechte Ergebnisse erzielt. Nach dem Verwenden von neuen Datenquellen (~fast 4000) Bildern konnte das Modell viel besser klassifizieren. Diese Daten haben verschiedene Winkel und Handtypen vereint.
 
-### Möglichkeiten der LED-Matrix beachten
+### 8.5 Möglichkeiten der LED-Matrix beachten
 Beim Erstellen der GIFs ist aufgefallen, dass nicht alle Farben genauso gut auf der Matrix aussehen wie beim Erstellen. Die Farbtiefe der Matrix ist eingeschränkt. Dabei sollte auf Kontraste geachtet werden.
