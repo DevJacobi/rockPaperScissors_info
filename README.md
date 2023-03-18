@@ -30,6 +30,10 @@
   - [Projektergebnisse](#projektergebnisse)
   - [Troubleshooting](#troubleshooting)
   - [Lessons Learned](#lessons-learned)
+    - [Begrenzte Ressourcen](#begrenzte-ressourcen)
+    - [Einfarbiger Hintergrund](#einfarbiger-hintergrund)
+    - [Verschiedene IDEs](#verschiedene-ides)
+    - [Viele Datensätze](#viele-datensätze)  
 ---
 
 ## Einführung
@@ -287,10 +291,22 @@ Zusätlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu
 ### Verbindungsabbrüche zwischen Nano und ESP32
 Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinander zu halten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird solange eine Verbindung versucht aufzubauen bis es klappt.
 
+### Gesten werden nicht richtig erkannt
+Das Modell wurde auf Datensätzen mit einem simplen Hintergrund trainiert. Das sollte auch nicht auf kompliziertere Hintergrunde angepasst werden. Dafür reicht der Nano nicht aus. Werden die Gesten nicht richtig erkannt, sollte darauf geachtet werden ein einfarbigen Hintergrund zu nehmen.
+
 ## Lessons Learned
-TODO
-- Awareness für begrenzte Ressourcen -> BLE verbraucht wohl gut RAM; ML muss daher mit einem geringeren Modell auskommen
-- Datensätze mit einfarbigen Hintergrund verlangen dann auch einen simplen Hintergrund zum Erkennen
-- verschiedene IDEs optimieren Code anders -> ArduinoIDE hat Ram mehr optimiert als von VSCode
-- Man braucht viele Daten mit verschiedenen Arten von Gestenmöglichkeiten
-- Farben der GIFs sollten angepasst werden auf die Farben der LED Matrix
+
+### Begrenzte Ressourcen
+BLE verbraucht mehr Ressourcen als gedacht. Das zusammen mit genauso hungrigen Prozessen wie der Klassifizierung von Bildern zu verbinden ist bei wenig RAM-Verfügbarkeit keine gute Idee. Es sollte für solche Projekte auf Komponenten mit ausreichend RAM zurückgegriffen werden. Die Konsequenz davon ist, dass ein anderes Trainingsmodell für die Daten von Nöten ist.
+
+### Einfarbiger Hintergrund
+Ein einfarbiger Hintergrund lässt das Modell deutlich leichter Gesten erkennen, da die Hand das einzige auf dem Bild ist, welches vom Hintergrund abweichen kann. Das ist für eine speicherschwache Komponente, wie dem Nano, eine sehr gute Wahl.
+
+### Verschiedene IDEs
+Wir konnten herausfinden, dass VSCode grundsätzlich mehr Speicher verbrauchen lässt bei den Komponenten als wenn der Code mit beispielweise der ArduinoIDE kompiliert wurde. Wir schließen daraus, das verschiedene Compiler genutzt werden. Es gilt also Herauszufinden, welche Compiler wirklich geeignet sind für das Kompilieren von Arduino-Programmen.
+
+### Viele Datensätze
+Am Anfang des Projekts haben wir mit wenig Daten (~100 Bildern) gearbeitet und schlechte Ergebnisse erzielt. Nach dem Verwenden von neuen Datenquellen (~fast 4000) Bildern konnte das Modell viel besser klassifizieren. Diese Daten haben verschiedene Winkel und Handtypen vereint.
+
+### Möglichkeiten der LED-Matrix beachten
+Beim Erstellen der GIFs ist aufgefallen, dass nicht alle Farben genauso gut auf der Matrix aussehen wie beim Erstellen. Die Farbtiefe der Matrix ist eingeschränkt. Dabei sollte auf Kontraste geachtet werden.
