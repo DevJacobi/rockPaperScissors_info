@@ -274,12 +274,18 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](http
 <img src="/pics/setup-above.jpeg" width="50%"/>
 
 ## Troubleshooting
-TODO
-- Nicht genug RAM -> ArduinoIDE vermutlich liegt das am Compiler
-- fehlende Libraries HUB75 Matrizen
-- Störsignale
-- Konnektivitätsprobleme innerhalb BLE -> Hardware fehlerhaft -> Beide Komponenten weiter zusammen
-- Speicherprobleme -> ?
+
+### Speicherprobleme
+BLE und und das Klassifizieren von Bildern zieht beträchtlich RAM. Das kann dazu führen, dass nach der Aufnahme eines Bildes nicht genug Ram für das Klassifizierung bereitssteht. Im Laufe des Projekts wurde daher das Trainingsmodell auf das mit der geringsten RAM-Nutzung zurückgegriffen. Wir konnten herausfinden, dass die Programmierumgebung einen Einfluss auf die Optimierung des Codes hat und somit auf die RAM-Nutzung. Anfänglich haben wir mit VSCode gearbeitet, sind dann aber testweise auf die ArduinoIDE gewechselt. Hier wird wahrscheinlich ein anderer Compiler benutzt, der anders optimiert. Wir empfehlen daher bei RAM-Problemen die ArduinoIDE zu verwenden bzw. andere Compieler auszuprobieren.
+
+Zusätlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu verzichten, da auch diese RAM fressen.
+
+### TODO Konsti fehlende Libraries HUB75 Matrizen
+
+### TODO Konsti Störsignale
+
+### Verbindungsabbrüche zwischen Nano und ESP32
+Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinander zu halten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird solange eine Verbindung versucht aufzubauen bis es klappt.
 
 ## Lessons Learned
 TODO
