@@ -197,10 +197,41 @@ Die Ausgabe, die über den Serial-Monitor zu betrachten ist, gibt Informationen 
 ### 4.2 ESP32 + LED Matrix Setup
 
 #### 4.2.1 Hardware 
+| Komponente | Produktname | Hersteller | Link | Preis |
+|------------|-------------|------------|------|-------|
+| LED Matrix | 32x32 RGB LED MATRIX – 5MM Pitch | Adafruit Industries LLC | https://www.digikey.de/de/products/detail/adafruit-industries-llc/2026/7035028?s=N4IgTCBcDaIIwFYwA4C0Y6NQOQCIgF0BfIA | 32,69 € |
+| Microcontroller | ESP32WROOM32E | Espressif Systems | https://www.digikey.de/de/products/detail/espressif-systems/ESP32-DEVKITC-32E/12091810 | 9,35 € |
+| Jumper-Kabel | Jumper Wire Kabel 40 STK. je 20 cm F2F Female to Female | AZ-Delivery | https://www.kaufland.de/product/342455919/?utm_source=shopping&utm_medium=non-paid&utm_campaign=pricecomparison&sid=42345840 | 5,29 € (40 Stück) |
+| Netzteil | AC-Adapter (Output: 5V, 3A) | Leicke | https://www.otto.de/p/leicke-ull-netzteil-15w-5v-3a-netzteil-besonders-leicht-kurzschluss-ueberspannungs-und-ueberhitzungsschutz-S0C1G0DZ/\#variationId=S0C1G0DZBSMT | 8,99 € |
+| Micro-USB-Kabel | Micro-USB-Kabel | Liour | https://amzn.to/3qPDoVF | 4,99 € |
+| Stromkabel LED Matrix | Power Cable | Adafruit Industries LLC | Im Lieferumfang der LED-Matrix enthalten | - |
+| DC-Buchse | DC Buchse Stecker 5,5 x 2,1mm | LitaElek | https://www.amazon.de/dp/B019HAC6V4/ | 6,49 € (5 Paar) |
+| - | - | - | - | Summe: 67,80 € |
 
 #### 4.2.2 Software
+Bibliotheken:
+* https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA
+* https://github.com/bitbank2/image_to_c
+* https://github.com/bitbank2/AnimatedGIF
+* https://github.com/arduino-libraries/ArduinoBLE
+* https://github.com/adafruit/Adafruit-GFX-Library 
+
+Code zur BLE Verbindung abgewandelt von https://docs.arduino.cc/tutorials/nano-33-ble-sense/ble-device-to-device 
 
 #### 4.2.3 Bauanleitung
+Für das empfangen der Daten über BLE und die Steuerung der LED Matrix kommt ein ESP32 Entwicklungsboard zum Einsatz. Dafür wurden Pins des ESPs mit Jumper Kabeln auf den HUB75 Stecker der LED Matrix verbunden und  im Code entsprechend konfiguriert (genauere Anleitung siehe https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA#1-library-installation und Abbildung)
+
+Bild 1
+
+Bild 2
+
+Um die LED Matrix, sowie den ESP mit Strom zu versorgen wird ein Netzteil verwendet. Hierfür wurde das bei der Matrix beigefügte Stromkabel sowie ein Micro-USB Kabel aufgeschnitten und die Enden in einer Klinkenbuchse terminiert.
+
+Bild 3
+
+Bild 4
+
+Bild 5
 
 ## 5 Matrix GIFs
 
