@@ -221,17 +221,17 @@ Code zur BLE Verbindung abgewandelt von https://docs.arduino.cc/tutorials/nano-3
 #### 4.2.3 Bauanleitung
 Für das empfangen der Daten über BLE und die Steuerung der LED Matrix kommt ein ESP32 Entwicklungsboard zum Einsatz. Dafür wurden Pins des ESPs mit Jumper Kabeln auf den HUB75 Stecker der LED Matrix verbunden und  im Code entsprechend konfiguriert (genauere Anleitung siehe https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA#1-library-installation und Abbildung)
 
-Bild 1
+<img src="/pics/esp32_hub75-wiring-graph.png"/>
 
-Bild 2
+<img src="/pics/hub75-wiring-picture.png" width="300px"/>
 
 Um die LED Matrix, sowie den ESP mit Strom zu versorgen wird ein Netzteil verwendet. Hierfür wurde das bei der Matrix beigefügte Stromkabel sowie ein Micro-USB Kabel aufgeschnitten und die Enden in einer Klinkenbuchse terminiert.
 
-Bild 3
+<img src="/pics/power-adapter-soldering-1.png" width="300px"/>
 
-Bild 4
+<img src="/pics/power-adapter-soldering-2.png" width="300px"/>
 
-Bild 5
+<img src="/pics/led_matrix-power-adapter.png" width="300px"/>
 
 ## 5 Matrix GIFs
 
