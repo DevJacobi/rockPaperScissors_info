@@ -15,10 +15,10 @@
   - [4 Setup](#4-setup)
     - [4.1 Nano 33 Setup](#41-nano-33-setup)
       - [4.1.1 Hardware](#411-hardware)
-      - [4.1.2 Software](#412software)
+      - [4.1.2 Software](#412-software)
     - [4.2 ESP32 + LED Matrix Setup](#42-esp32--led-matrix-setup)
-      - [4.2.1 Hardware](#421-hardware-1)
-      - [4.2.2 Software](#422-software-1)
+      - [4.2.1 Hardware](#421-hardware)
+      - [4.2.2 Software](#422-software)
       - [4.2.3 Bauanleitung](#423-bauanleitung)
   - [5 Matrix GIFs](#5-matrix-gifs)
     - [5.1 GIF Erstellung](#51-gif-erstellung)
@@ -161,8 +161,8 @@ Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist kein
 #### 4.1.2 Software
 Benötigt wird für diesen Teil folgendes:
 
-- Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo unter: model_lib > ei-rock-paper-scissors-arduino-1.0.25.zip)
-- Das Unterrepo "nano_detection"
+- Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo [hier](/model_lib/ei-rock-paper-scissors-arduino-1.0.25.zip) zu finden)
+- Das Unterrepo [nano detection](/nano_detection/)
 - ArduinoIDE zum Flashen (Auch eine andere IDE möglich)
 
 Standardbibliotheken:
