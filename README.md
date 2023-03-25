@@ -246,9 +246,11 @@ Code zur BLE Verbindung abgewandelt von https://docs.arduino.cc/tutorials/nano-3
 
 Board Manger für ESP32 bei verwendung der Arduino IDE: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
-Der Source Code für den ESP32 beifndet sich [hier](/esp32_peripheral/src/)
+Der Source Code für den ESP32 beifndet sich [hier](/esp32_peripheral/src/). 
 
 Erläutertrungen zum Code befinden sich als Kommentare im Source Code 
+
+Für die Konvertierung der GIFs in C++ Variablen siehe die Anleitungen in [image_to_c](https://github.com/bitbank2/image_to_c) und [AnimatedGIF](https://github.com/bitbank2/AnimatedGIF).
 
 #### 4.2.3 Bauanleitung
 Für das empfangen der Daten über BLE und die Steuerung der LED Matrix kommt ein ESP32 Entwicklungsboard zum Einsatz. Dafür wurden Pins des ESPs mit Jumper Kabeln auf den HUB75 Stecker der LED Matrix verbunden und  im Code entsprechend konfiguriert (genauere Anleitung siehe https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA#1-library-installation und Abbildung)
