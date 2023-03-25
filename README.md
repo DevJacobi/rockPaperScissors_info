@@ -318,9 +318,8 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](http
 -	Die maximal Anzahl an Layer ist 75
 -	[pixelart](https://www.pixilart.com/) hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
 
-<p align="center">
-    <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
-</p>
+  <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
+
 
 ## 6 Projektergebnisse
 
