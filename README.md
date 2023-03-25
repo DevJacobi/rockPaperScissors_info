@@ -45,7 +45,7 @@ Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin gab es die Möglichke
 ### 1.2 Zielstellung
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
 
-### 1.3 Vorhergehensweise
+### 1.3 Vorgehensweise
 Das Projekt wurde in drei Arbeitspakete unterteilt:
 
 1. Machinelearning Modell trainieren
