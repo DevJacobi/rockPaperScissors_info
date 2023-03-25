@@ -134,16 +134,21 @@ Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. 
 - ArduCam OV7675
 - USB A to USB Micro B Kabel (1 Meter)
 
+Verfügbar als [Arduino Tiny Machine Learning Kit](https://store.arduino.cc/products/arduino-tiny-machine-learning-kit) (50,40€)
+
 Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist keine _Sense_ Version benötigt, da keiner der Sensoren benutzt wird.
 
 #### 4.1.2 Software
 Benötigt wird für diesen Teil folgendes:
 
-- Arduino Bibliothek aus _Edge Impulse_ (bereitgestellt im TODO Repo)
-- Die TODO.ino Datei aus dem TODO Repo
-- ArduinoIDE (auch eine andere IDE möglich) zum Flashen
+- Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo unter: model_lib > ei-rock-paper-scissors-arduino-1.0.25.zip)
+- Das Unterrepo "nano_detection"
+- ArduinoIDE zum Flashen (Auch eine andere IDE möglich)
 
-Die _TODO.ino_ Datei muss in der ArduinoIDE geöffnet werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** geschen. Dabei sollte die TODO Bibliothek ausgewählt werden.
+**Hinweis**
+Das Repo ist angepasst für das Nutzen von _platform.io_ in VSCode. Wir empfehlen aber hierfür die ArduinoIDE, da hier der Compiler den Code RAM-sparender kompiliert. Deshalb gehen wir nur noch darauf ein im Folgenden. Benötigt wird aus dem Repo dementsprechend nur die _main.cpp_ benötigt, welche verfügbar ist unter "nano_detection > src > main.cpp". Sollte platform.io verwendet werden kann das Repo einfach so eingebunden werden und der Arduino kann direkt geflasht werden.
+
+In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist die Bibliothek unter model_lib > **ei-rock-paper-scissors-arduino-1.0.25.zip**
 
 <img src="/pics/add-library.png" width="50%"/>
 
@@ -155,7 +160,7 @@ Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss
 
 Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompiliert und geflasht werden.
 
-Die Datei _TODO.ino_ besteht zum Großen Teil aus vorgenerierten Code aus einem Example der exportierten Bibliothen aus Edge Impulse. Diese wurde daraufhin von uns erweitert. Das umfasst drei Teile:
+Die Datei _main.cpp_ besteht zum Großen Teil aus vorgenerierten Code aus einem Example der exportierten Bibliothen aus Edge Impulse. Diese wurde daraufhin von uns erweitert. Das umfasst drei Teile:
 
 - CircularBuffer Klasse
 - Erweiterung der loop- und setup-Methode
