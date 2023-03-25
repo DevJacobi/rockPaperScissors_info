@@ -98,13 +98,12 @@ Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 | Eigen              | Hintergrund  | <img src="/pics/nothing-example.png" width="30%"/>                   |
 
 ### 2.2 Impulse Design
-In Edge Impulse lässt sich mit den hinterlegten Daten ein sogennanter "Impulse" konfigurieren bei dem, abhängig von den Datentypen, verschiedene Einstellungen zur Vorverarbeitung vorgenommen werden können. Im Fall von Bildern z.B. die Vereinheitlichung der Größe der Bilder. Weiter wird die Feature Extraktion und die Benennug der Variablen hier vorgenommen. Anschließend wird der Learning Schritt festgelegt und die Input und Output Feature definiert.
+In Edge Impulse lässt sich mit den hinterlegten Daten ein sogenannter "Impulse" konfigurieren, bei dem, abhängig von den Datentypen, verschiedene Einstellungen zur Vorverarbeitung vorgenommen werden können. Im Fall von Bildern z.B. die Vereinheitlichung der Größe der Bilder. Weiter wird die Feature-Extraktion und die Benennung der Variablen hier vorgenommen. Anschließend wird der Learning-Schritt festgelegt und die Input und Output Feature definiert.
 
 <img src="/pics/impulse-learning.png" width="70%"/>
 
 #### 2.2.1 Image
-
-Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut, da das Modell nicht auf Farben sondern Formen trainiert werden soll. Eine Hand darf jegliche Hautfarben haben und die Hintergrundfarbe sollte auch egal sein.
+Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut, da das Modell nicht auf Farben, sondern Formen trainiert werden soll. Eine Hand darf jegliche Hautfarben haben und die Hintergrundfarbe sollte auch egal sein.
 
 #### 2.2.2 Transfer Learning
 In Edge Impulse, bezieht sich Transfer Learning darauf, wie vortrainierte neuronale Netze genutzt werden können, um spezifische Machine-Learning-Modelle für die Erkennung von bestimmten Daten (z.B. Bilder, Audio oder Sensordaten) zu erstellen.
@@ -122,7 +121,7 @@ Die Idee ist, dass durch die Anwendung von verschiedenen Transformationen auf di
 
 Das ist bei uns hilfreich, da die Geste meist von nur einer Seite aus abgelichtet ist.
 
-Das Modell hat eine Genauigkeit von 73,8%. Es ist erkennbar, dass Schwierigkeiten bei _Papier_ bestehen. Das war vorher mit anderen Modellen nicht der Fall. Wir benutzen _MobileNet(V1)_, da hier weniger RAM verbraucht wird als bei anderen Modellen. Das führt wohl zu Einschränkungen. Es empfihelt sich eine höhere Version mit mehr RAM-Verbrauch als Modell zu wählen, wenn BLE nicht verwendet wird. Durch BLE wird nämlich mehr RAM verwendet.
+Das Modell hat eine Genauigkeit von 73,8%. Es ist erkennbar, dass Schwierigkeiten bei _Papier_ bestehen. Das war vorher mit anderen Modellen nicht der Fall. Wir benutzen _MobileNet(V1)_, da hier weniger RAM verbraucht wird als bei anderen Modellen. Das führt wohl zu Einschränkungen. Es empfiehlt sich eine höhere Version mit mehr RAM-Verbrauch als Modell zu wählen, wenn BLE nicht verwendet wird. Durch BLE wird nämlich mehr RAM verwendet.
 
 ### 2.3 Deploy
 In diesem Schritt wird das trainierte Modell exportiert. Wir nutzen dabei _Arduino library_, um das Modell als Bibliothek einbinden zu können. Dabei nutzen wir die optimierte Version, welche _int8_ statt _float32_ Werte nutzt. Was Speicherplatz und RAM spart. Die Bibliothek, die daraus entstanden ist, ist unter "model_lib > ei-rock-paper-scissors-arduino-1.0.25" zu finden.
