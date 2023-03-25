@@ -120,6 +120,9 @@ _Data augmentation_ (Daten-Erweiterung) ist eine Technik im Bereich des maschine
 Die Idee ist, dass durch die Anwendung von verschiedenen Transformationen auf die vorhandenen Trainingsdaten, wie z.B. Rotation, Skalierung, Spiegelung, Zuschneiden und Farbveränderungen, neue Datensätze generiert werden, die dem Modell helfen, mehr Datenvariationen zu erlernen. Durch das Hinzufügen dieser erweiterten Datensätze zum Trainingsdatensatz können die Modelle besser generalisieren und sind weniger anfällig für Überanpassung (Overfitting).
 
 Das ist bei uns hilfreich, da die Geste meist von nur einer Seite aus abgelichtet ist.
+
+Das Modell hat eine Genauigkeit von 73,8%. Es ist erkennbar, dass Schwierigkeiten bei _Papier_ bestehen. Das war vorher mit anderen Modellen nicht der Fall. Wir benutzen _MobileNet(V1)_, da hier weniger RAM verbraucht wird als bei anderen Modellen. Das führt wohl zu Einschränkungen. Es empfihelt sich eine höhere Version mit mehr RAM-Verbrauch als Modell zu wählen, wenn BLE nicht verwendet wird. Durch BLE wird nämlich mehr RAM verwendet.
+
 ### 2.3 Deploy
 In diesem Schritt wird das trainierte Modell exportiert. Wir nutzen dabei _Arduino library_, um das Modell als Bibliothek einbinden zu können. Dabei nutzen wir die optimierte Version, welche _int8_ statt _float32_ Werte nutzt. Was Speicherplatz und RAM spart. Die Bibliothek, die daraus entstanden ist, ist unter "model_lib > ei-rock-paper-scissors-arduino-1.0.25" zu finden.
 
