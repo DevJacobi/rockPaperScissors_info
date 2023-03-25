@@ -15,10 +15,10 @@
   - [4 Setup](#4-setup)
     - [4.1 Nano 33 Setup](#41-nano-33-setup)
       - [4.1.1 Hardware](#411-hardware)
-      - [4.1.2 Software](#412software)
+      - [4.1.2 Software](#412-software)
     - [4.2 ESP32 + LED Matrix Setup](#42-esp32--led-matrix-setup)
-      - [4.2.1 Hardware](#421-hardware-1)
-      - [4.2.2 Software](#422-software-1)
+      - [4.2.1 Hardware](#421-hardware)
+      - [4.2.2 Software](#422-software)
       - [4.2.3 Bauanleitung](#423-bauanleitung)
   - [5 Matrix GIFs](#5-matrix-gifs)
     - [5.1 GIF Erstellung](#51-gif-erstellung)
@@ -45,7 +45,7 @@
 ## 1 Einführung
 
 ### 1.1 Motivation
-Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin hatten wir die Aufgabe in zwei Wochen ein Machine Learning Projekt mit Arduino Bauteilen umzusetzen. Bei der Projektfindung haben wir uns für Bildklassifizierung, LED Matrizen und der Kommunikation zwischen Mikrocontrollern über Bluetooth Low Energy (BLE) interessiert. Nach etwas Brainstomrming kamen wir auf die Idee die verschidenen Aspekte in einen Schere, Stein, Papier Computer zu integrieren.
+Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin hatten wir die Aufgabe in zwei Wochen ein Machine Learning Projekt mit Arduino Bauteilen umzusetzen. Bei der Projektfindung haben wir uns für Bildklassifizierung, LED Matrizen und der Kommunikation zwischen Mikrocontrollern über Bluetooth Low Energy (BLE) interessiert. Nach etwas Brainstorming kamen wir auf die Idee, die verschiedenen Aspekte in einem Schere-Stein-Papier-Computer zu integrieren.
 
 ### 1.2 Zielstellung
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
@@ -162,15 +162,15 @@ Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist kein
 #### 4.1.2 Software
 Benötigt wird für diesen Teil folgendes:
 
-- Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo unter: model_lib > ei-rock-paper-scissors-arduino-1.0.25.zip)
-- Das Unterrepo "nano_detection"
+- Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo [hier](/model_lib/ei-rock-paper-scissors-arduino-1.0.25.zip) zu finden)
+- Das Unterrepo [nano detection](/nano_detection/)
 - ArduinoIDE zum Flashen (Auch eine andere IDE möglich)
 
 Standardbibliotheken:
 - https://github.com/arduino-libraries/ArduinoBLE
 - https://github.com/arduino-libraries/Arduino_OV767X
 
-In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist die Bibliothek unter model_lib > **ei-rock-paper-scissors-arduino-1.0.25.zip**
+In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist [diese](/model_lib/ei-rock-paper-scissors-arduino-1.0.25.zip) Bibliothek 
 
 <img src="/pics/add-library.png" width="50%"/>
 
