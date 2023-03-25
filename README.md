@@ -4,7 +4,7 @@
   - [1 Einführung](#1-einführung)
     - [1.1 Motivation](#11-motivation)
     - [1.2 Zielstellung](#12-zielstellung)
-    - [1.3 Vorhergehensweise](#13-vorhergehensweise)
+    - [1.3 Vorgehensweise](#13-vorgehensweise)
   - [2 Edge Impulse](#2-edge-impulse)
     - [2.1 Datenacquisation](#21-datenacquisation)
     - [2.2 Impulse Learning](#22-impulse-learning)
