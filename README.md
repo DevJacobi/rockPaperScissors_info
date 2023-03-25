@@ -57,8 +57,8 @@ Das Projekt wurde in drei Arbeitspakete unterteilt:
 2. Modell als Bibliothek auf dem Nano einbinden und Bilder erstellen lassen
 3. BLE Verbindung herstellen und Grafiken erstellen und anzeigen
 
-Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu harmonieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
-Auf dem ESP32 wurde die Spiellogik implementiert welche aus der BLE Verbindung die Geste des Spielers ausliest und für den COM eine Geste spielt. Abhängig von dieser Kombination soll dann eine Animation auf der LED Matrix ausgegeben. Für dies wurden für die jewiligen Spielsituationen GIFs angefertigt und in für C++ verwertbare Variablen konvertiert.
+Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genaueres dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu harmonieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
+Auf dem ESP32 wurde die Spiellogik implementiert, welche aus der BLE Verbindung die Geste des Spielers ausliest und für den COM eine Geste spielt. Abhängig von dieser Kombination soll dann eine Animation auf der LED Matrix ausgegeben. Für dies wurden für die jeweiligen Spielsituationen GIFs angefertigt und in für C++ verwertbare Variablen konvertiert.
 
 ## 2 Edge Impulse
 Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für Edge-Geräte wie z.B. Mikrocontroller mit Sensoren optimiert sind. Die Plattform bietet eine integrierte Umgebung zum Sammeln von Daten, zum Erstellen von Modellen und zum Bereitstellen von Inferenz-Engines direkt auf den Edge-Geräten. Dadurch können Entwickler und Ingenieure schnell und einfach Edge-Modelle für eine Vielzahl von Anwendungen erstellen, darunter Bilderkennung, Spracherkennung, Vibrationserkennung und mehr. Edge Impulse unterstützt eine breite Palette von Edge-Hardware-Plattformen und bietet auch eine Reihe von Entwicklungs-Tools und Bibliotheken für die Integration in bestehende Systeme.
@@ -134,7 +134,7 @@ Für das Projekt gibt es ein Konzept, welches die verschiedenen Komponenten und 
 
 <img src="/pics/konzept.png"/>
 
-Zu sehen sind der _Nano_ und _ESP32_ als Hauptkomponenten. Der _Nano_ ist mit einer Kamera, der OV7675, verbunden. Diese soll jede Sekunde ein Bild der Umgebung aufnehmen. Diese Umgebung sollte eine Hand enthalten die eine der Gesten _Schere_, _Stein_ oder _Papier_ macht. Dieses Bild wird auf dem _Nano_ dann vom trainierten Klassifizierungsmodell klassifiziert und per BLE an den ESP32 gesendet. Das Senden erfolgt erst wenn zwei mal die gleiche Geste erkannt wurde. Zu den Gesten zählen:
+Zu sehen sind der _Nano_ und _ESP32_ als Hauptkomponenten. Der _Nano_ ist mit einer Kamera, der OV7675, verbunden. Diese soll jede Sekunde ein Bild der Umgebung aufnehmen. Diese Umgebung sollte eine Hand enthalten, die eine der Gesten _Schere_, _Stein_ oder _Papier_ macht. Dieses Bild wird auf dem _Nano_ dann vom trainierten Klassifizierungsmodell klassifiziert und per BLE an den ESP32 gesendet. Das Senden erfolgt erst, wenn zweimal die gleiche Geste erkannt wurde. Zu den Gesten zählen:
 
 - scissors (Schere)
 - stone (Stein)
@@ -142,7 +142,7 @@ Zu sehen sind der _Nano_ und _ESP32_ als Hauptkomponenten. Der _Nano_ ist mit ei
 - nothing (Leerer Hintergrund)
 - uncertain (Wenn sich das Modell nicht zu über 50% sicher ist)
 
-Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. Der _ESP32_ empfängt den Wert und wählt für den Computer einen eigenen Wert. Das Ergebnis wird dann mithilfe von vorher erstellten GIFs auf der Matrix LED dargestellt.
+Die Werte werden dabei in Bytes gemappt, um diese über BLE senden zu können. Der _ESP32_ empfängt den Wert und wählt für den Computer einen eigenen Wert. Das Ergebnis wird dann mithilfe von vorher erstellten GIFs auf der Matrix LED dargestellt.
 
 ## 4 Setup
 
@@ -156,10 +156,10 @@ Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. 
 
 Verfügbar als [Arduino Tiny Machine Learning Kit](https://store.arduino.cc/products/arduino-tiny-machine-learning-kit) (50,40€)
 
-Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_ aber es ist keine _Sense_ Version benötigt, da keiner der Sensoren benutzt wird.
+Verwendet wurde zwar ein _Arduino Nano 33 BLE Sense Lite Board_, aber es ist keine _Sense_ Version benötigt, da keiner der Sensoren benutzt wird.
 
 #### 4.1.2 Software
-Benötigt wird für diesen Teil folgendes:
+Benötigt wird für diesen Teil Folgendes:
 
 - Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo [hier](/model_lib/ei-rock-paper-scissors-arduino-1.0.25.zip) zu finden)
 - Das Unterrepo [nano detection](/nano_detection/)
@@ -175,13 +175,13 @@ In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.
 
 Zusätzlich müssen noch die öffentlichen Bibliotheken _Arduino_OV767X_ und _ArduinoBLE_ hinzugefügt werden. Das sollte über den _Library Manager_ gemacht werden.
 
-Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss erstmalig der richtige Boardmanager installiert werden und der Port eingestellt werden. Der Boardmanager _Arduino Mbed OS Nano_ wird installiert über **Tools > Board > Board Manager**
+Daraufhin kann die Datei kompiliert und der Arduino geflasht werden. Dafür muss erstmalig der richtige Boardmanager installiert und der Port eingestellt werden. Der Boardmanager _Arduino Mbed OS Nano_ wird installiert über **Tools > Board > Board Manager**
 
 <img src="/pics/install-board-manager.png" width="50%"/>
 
-Somit kann der Port eingestellt werden indem der Nano eingesteckt ist, kompiliert und geflasht werden.
+Somit kann der Port eingestellt werden, indem der Nano eingesteckt ist, kompiliert und geflasht werden.
 
-Die Datei _main.cpp_ besteht zum Großen Teil aus vorgenerierten Code aus einem Example der exportierten Bibliothen aus Edge Impulse. Diese wurde daraufhin von uns erweitert. Das umfasst drei Teile:
+Die Datei _main.cpp_ besteht zum großen Teil aus vorgeneriertem Code aus einem Example der exportierten Bibliotheken aus Edge Impulse. Diese wurde daraufhin von uns erweitert. Das umfasst drei Teile:
 
 - CircularBuffer Klasse
 - Erweiterung der loop- und setup-Methode
@@ -189,7 +189,7 @@ Die Datei _main.cpp_ besteht zum Großen Teil aus vorgenerierten Code aus einem 
 
 **CircularBuffer**
 
-Die _CircularBuffer_ Klasse wurde als Hilfsklasse geschrieben, um sich die letzten _n_ Gesten zu merken und automatisch aus dem Buffer zu schmeißen beim Hinzufügen neuer Werte. Sind alle Werte gleich gibt die _allEqual_ Methode true aus. Mit _push_ lassen sich neue Gesten eintragen und mit _clear_ alle Werte löschen.
+Die _CircularBuffer_ Klasse wurde als Hilfsklasse geschrieben, um sich die letzten _n_ Gesten zu merken und automatisch aus dem Buffer zu schmeißen beim Hinzufügen neuer Werte. Sind alle Werte gleich, gibt die _allEqual_ Methode true aus. Mit _push_ lassen sich neue Gesten eintragen und mit _clear_ alle Werte löschen.
 
 <img src="/pics/cirular-buffer.png" height="50%"/>
 
@@ -211,12 +211,12 @@ Die Methode wird benötigt, um über BLE Bytes zu versenden. Dabei werden im ESP
 Im Setup gibt es nur die Anpassung zum vorgenerierten Code, dass eine BLE Verbindung aktiviert und aufgebaut wird. Dafür wird die Methode _connectToPeripheral_ aufgerufen, welche den Service vom ESP aufruft und zu ihm verbindet.
 
 **Anpassungen Loop**
-Die Loop-Methode wurde zum Größtenteil vorgeneriert. Wir haben an dem Punkt angesetzt, wo die Klassifizierung ausgegeben wird. Hier hinzugefügt wurden Variablen, um festzlegen wie hoch der Wert eines Labels sein muss, um als erkannt zu gelten (_UNCERTAIN_BORDER_). Es wird zuerst herausgefunden, welche der Werte der höchste ist, und ob dieser die _UNCERTAIN_BORDER_ überschreitet. Wird zwei mal die gleiche Geste erkannt, wird diese über _BLE_ versendet. Dabei wird geprüft, ob noch eine Verbindung besteht und eine neue Verbindung bei Bedarf aufgebaut. 
+Die Loop-Methode wurde zum größten Teil vorgeneriert. Wir haben an dem Punkt angesetzt, wo die Klassifizierung ausgegeben wird. Hier hinzugefügt wurden Variablen, um festzulegen, wie hoch der Wert eines Labels sein muss, um als erkannt zu gelten (_UNCERTAIN_BORDER_). Es wird zuerst herausgefunden, welche der Werte der höchste ist, und ob dieser die _UNCERTAIN_BORDER_ überschreitet. Wird zweimal die gleiche Geste erkannt, wird diese über _BLE_ versendet. Dabei wird geprüft, ob noch eine Verbindung besteht und eine neue Verbindung bei Bedarf aufgebaut. 
 
 <img src="/pics/loop-code.png" width="50%">
 
 **Ausgabe**
-Die Ausgabe, die über den Serial-Monitor zu betrachten ist, gibt Informationen über die Klassifizierung aus und die Konnektivität zum _ESP32_. Bei der Klassifizierung ist möglich _nothing_, _paper_, _rock_ und _scissors_. Ist eine der Werte nicht höher als _0.5_ wird _uncertain_ ausgegeben. Die Ausgabe informiert zu aller erst jedoch über die Konnektivität zum _ESP32_. Danach wird ausgegeben, wenn ein Foto aufgenommen wird. Danach der Klassifizierungsstand. Sollte zwei mal der gleiche Wert gelesen werden, wird auch das ausgegeben. Da hierbei geprüft wird, ob noch eine Verbindung besteht, wird der Stand über die Konnektivität wieder ausgegeben.
+Die Ausgabe, die über den Serial-Monitor zu betrachten ist, gibt Informationen über die Klassifizierung aus und die Konnektivität zum _ESP32_. Bei der Klassifizierung ist möglich _nothing_, _paper_, _rock_ und _scissors_. Ist eine der Werte nicht höher als _0.5_ wird _uncertain_ ausgegeben. Die Ausgabe informiert zuallererst jedoch über die Konnektivität zum _ESP32_. Danach wird ausgegeben, wenn ein Foto aufgenommen wird. Danach der Klassifizierungsstand. Sollte zweimal der gleiche Wert gelesen werden, wird auch das ausgegeben. Da hierbei geprüft wird, ob noch eine Verbindung besteht, wird der Stand über die Konnektivität wieder ausgegeben.
 
 <img src="/pics/detection-output.png" width="50%">
 
@@ -244,22 +244,22 @@ Bibliotheken:
 
 Code zur BLE Verbindung abgewandelt von https://docs.arduino.cc/tutorials/nano-33-ble-sense/ble-device-to-device
 
-Board Manger für ESP32 bei verwendung der Arduino IDE: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
+Board Manager für ESP32 bei Verwendung der Arduino IDE: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
 
-Der Source Code für den ESP32 beifndet sich [hier](/esp32_peripheral/src/). 
+Der Source Code für den ESP32 befindet sich [hier](/esp32_peripheral/src/). 
 
-Erläutertrungen zum Code befinden sich als Kommentare im Source Code 
+Erläuterungen zum Code befinden sich als Kommentare im Source Code.
 
 Für die Konvertierung der GIFs in C++ Variablen siehe die Anleitungen in [image_to_c](https://github.com/bitbank2/image_to_c) und [AnimatedGIF](https://github.com/bitbank2/AnimatedGIF).
 
 #### 4.2.3 Bauanleitung
-Für das empfangen der Daten über BLE und die Steuerung der LED Matrix kommt ein ESP32 Entwicklungsboard zum Einsatz. Dafür wurden Pins des ESPs mit Jumper Kabeln auf den HUB75 Stecker der LED Matrix verbunden und  im Code entsprechend konfiguriert (genauere Anleitung siehe https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA#1-library-installation und Abbildung)
+Für das Empfangen der Daten über BLE und die Steuerung der LED Matrix kommt ein ESP32 Entwicklungsboard zum Einsatz. Dafür wurden Pins des ESPs mit Jumper Kabeln auf den HUB75 Stecker der LED Matrix verbunden und im Code entsprechend konfiguriert (genauere Anleitung siehe https://github.com/mrfaptastic/ESP32-HUB75-MatrixPanel-DMA#1-library-installation und Abbildung)
 
 <img src="/pics/esp32_hub75-wiring-graph.png"/>
 
 <img src="/pics/hub75-wiring-picture.png" width="300px"/>
 
-Um die LED Matrix, sowie den ESP mit Strom zu versorgen wird ein Netzteil verwendet. Hierfür wurde das bei der Matrix beigefügte Stromkabel sowie ein Micro-USB Kabel aufgeschnitten und die Enden in einer Klinkenbuchse terminiert.
+Um die LED Matrix, sowie den ESP mit Strom zu versorgen, wird ein Netzteil verwendet. Hierfür wurde das bei der Matrix beigefügte Stromkabel sowie ein Micro-USB-Kabel aufgeschnitten und die Enden in einer Klinkenbuchse terminiert.
 
 <img src="/pics/power-adapter-soldering-1.png" width="300px"/>
 
@@ -270,22 +270,21 @@ Um die LED Matrix, sowie den ESP mit Strom zu versorgen wird ein Netzteil verwen
 ## 5 Matrix GIFs
 
 ### 5.1 GIF Erstellung
-Die Erstellung von GIFs sollte in vier Phasen unterteilt werden. 
 In der ersten Phase sollten Ideen gefunden werden. Es empfiehlt sich für ein GIF mehrere Ideen zu haben und diese auch umzusetzen, um am Ende die Möglichkeit zu haben sich für die beste Idee zu entscheiden. 
-In der zweiten Phase sollten die Layer erstellt werden, wobei jedes Element eines Bildes  idealerweise in einem Layer platziert werden sollte.
+In der zweiten Phase sollten die Layer erstellt werden, wobei jedes Element eines Bildes idealerweise in einem Layer platziert werden sollte.
 Nach dem alle Layer erstellt wurden, können diese in der 3. Phase zu einem Gesamtbild zusammengefügt werden. 
 Schließlich werden die Bilder in der 4. Phase in die richtige Reihenfolge gebracht und den passenden Zeitabständen zusammengefügt.
 
 Im weiteren Verlauf wird näher auf die Phasen eingegangen. Hierzu wird der Verlauf beispielhaft an einem GIF erläutert. 
 
 ### 5.2 Phase 1
-Um Ideen für GIFs zu finden können verschiedene Methoden, wie Brainstorming verwendet werden. Ein Gesamtüberblick des Projektes könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
+Um Ideen für GIFs zu finden, können verschiedene Methoden, wie Brainstorming verwendet werden. Ein Gesamtüberblick des Projektes könnte große Hilfe leisten. Dadurch kann entschieden werden, welche Fragen beantwortet oder welche Schritte des Projektes visualisiert werden sollen.
 Im nächsten Schritt können innerhalb der Gruppe erste Ideen diskutiert werden.
-Sollte keine Inspiration vorhanden sein lohnt es sich im Internet nach ähnlichen Projekten zu suchen, um die Ideenfindung zu vereinfachen. 
+Sollte keine Inspiration vorhanden sein, lohnt es sich im Internet nach ähnlichen Projekten zu suchen, um die Ideenfindung zu vereinfachen. 
 
 ### 5.3 Phase 2
-Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der Bilder identifiziert und in alleinstehende Layer platziert werden. 
-Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem alleinstehenden Layer sein. Zudem sollte jede Position, der Schere ebenfalls in einem alleinstehenden Layer sein. Das selbe Prinzip sollte für den Stein angewandt werden.
+Nachdem die Ideenfindung abgeschlossen ist, sollten die einzelnen Elemente der Bilder identifiziert und in alleinstehende Layer platziert werden. 
+Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem alleinstehenden Layer sein. Zudem sollte jede Position, der Schere ebenfalls in einem alleinstehenden Layer sein. Dasselbe Prinzip sollte für den Stein angewandt werden.
 So sind in den folgenden Abbildungen die Layer der Schere und der jeweiligen Positionen zu sehen.
 
 <img src="/pics/gif_doc/scissors_layer.png" width="30%"/> 
@@ -300,8 +299,8 @@ Nachdem die Layer der Hände erstellt wurden, werden die einzelnen Layer des Üb
 
 
 ### 5.4 Phase 3
-In der 3. Phase werden die Layer  zu Bildern zusammengefügt. 
-Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweils zugehörigen Positionen zusammengefügt. 
+In der 3. Phase werden die Layer zu Bildern zusammengefügt. 
+Nachdem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweils zugehörigen Positionen zusammengefügt. 
 
 
   <img src="/pics/gif_doc/rock_scissors.png" width="30%"/> 
@@ -312,7 +311,7 @@ Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können di
   <img src="/pics/gif_doc/rock_scissors_farbe.png" width="30%"/> 
 
 ### 5.5 Phase 4
-Im letzten Schritt werden die Bilder in die richtige Reihenfolge gebracht und ihnen werden die passenden Zeitabständen gegeben, um das fertige GIF zu erstellen.
+Im letzten Schritt werden die Bilder in die richtige Reihenfolge gebracht und ihnen werden die passenden Zeitabstände gegeben, um das fertige GIF zu erstellen.
 
   <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
 
@@ -329,15 +328,15 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](http
 -	Den Layern sollten knappe und beschreibenden Namenskonventionen gegeben werden.  
 
 **Pixilart spezifisch:**
--	Die maximal Anzahl an Layer ist 75
--	[pixelart](https://www.pixilart.com/) hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweiligen Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
+- Die maximal Anzahl an Layer ist 75
+- [pixelart](https://www.pixilart.com/) hat für die Zeiten der einzelnen Bilder nach die der Millisekunde 500 als nächstes 1 Sekunde. Wenn jedoch 700 Millisekunden gebraucht werden, kann das jeweilige Bild dupliziert werden, um dem ersten 500 Millisekunden und dem zweiten Bild 200 Millisekunden zu geben. 
 
   <img src="/pics/gif_doc/zeit_gifs.png" width="50%"/> 
 
 
 ## 6 Projektergebnisse
 
-Das Projektergebnis umfasst ein trainiertes Modell zur Erkennung von Schere, Stein, Papier als Handgesten vor einem einfarbigen Hintergrund. Dieses Modell läuft auf einen _Arduino Nano 33 BLE Sense_. Das Ergebnis wird erfolgreich auf eine sehr kleine Entfernung über _BLE_ an einen _ESP32_ gesendet, welcher eine _LED Matrix_ ansteuert, um GIFs für jedes Spielergebnis darzustellen. Dabei wird für den CPU zufällig eine Handgeste ausgewählt. Die LED Matrix stellt dabei manchmal die Bilder verzerrt da. Durch den kleinen Speicherplatz ist unser trainiertes Modell nicht gut im Erkennen der Geste _Schere_. Der Rest kann sehr gut erkannt werden.
+Das Projektergebnis umfasst ein trainiertes Modell zur Erkennung von Schere, Stein, Papier als Handgesten vor einem einfarbigen Hintergrund. Dieses Modell läuft auf einem _Arduino Nano 33 BLE Sense_. Das Ergebnis wird erfolgreich auf eine geringe Entfernung über _BLE_ an einen _ESP32_ gesendet, welcher eine _LED Matrix_ ansteuert, um GIFs für jedes Spielergebnis darzustellen. Dabei wird für den CPU zufällig eine Handgeste ausgewählt. Die LED Matrix stellt dabei manchmal die Bilder verzerrt dar. Durch den kleinen Speicherplatz ist unser trainiertes Modell nicht gut im Erkennen der Geste _Schere_. Der Rest kann gut erkannt werden.
 
 ![](/gifs/setup-gif.gif)
 <img src="/pics/setup-idle.jpeg" width="300px"/>
@@ -350,32 +349,32 @@ Das Projektergebnis umfasst ein trainiertes Modell zur Erkennung von Schere, Ste
 ## 7 Troubleshooting
 
 ### 7.1 Speicherprobleme
-BLE und und das Klassifizieren von Bildern zieht beträchtlich RAM. Das kann dazu führen, dass nach der Aufnahme eines Bildes nicht genug Ram für das Klassifizierung bereitssteht. Im Laufe des Projekts wurde daher das Trainingsmodell auf das mit der geringsten RAM-Nutzung zurückgegriffen. Wir konnten herausfinden, dass die Programmierumgebung einen Einfluss auf die Optimierung des Codes hat und somit auf die RAM-Nutzung. Anfänglich haben wir mit VSCode gearbeitet, sind dann aber testweise auf die ArduinoIDE gewechselt. Hier wird wahrscheinlich ein anderer Compiler benutzt, der anders optimiert. Wir empfehlen daher bei RAM-Problemen die ArduinoIDE zu verwenden bzw. andere Compieler auszuprobieren.
+BLE und das Klassifizieren von Bildern zieht beträchtlich RAM. Das kann dazu führen, dass nach der Aufnahme eines Bildes nicht genug RAM für die Klassifizierung bereitsteht. Im Laufe des Projekts wurde daher das Trainingsmodell auf das mit der geringsten RAM-Nutzung zurückgegriffen. Wir konnten herausfinden, dass die Programmierumgebung einen Einfluss auf die Optimierung des Codes hat und somit auf die RAM-Nutzung. Anfänglich haben wir mit VSCode gearbeitet, sind dann aber testweise auf die ArduinoIDE gewechselt. Hier wird wahrscheinlich ein anderer Compiler benutzt, der anders optimiert. Wir empfehlen daher bei RAM-Problemen, die ArduinoIDE zu verwenden bzw. andere Compiler auszuprobieren.
 
-Zusätlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu verzichten, da auch diese RAM fressen.
+Zusätzlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu verzichten, da auch diese RAM fressen.
 
 ### 7.2 Fehlende Libraries für HUB75 Matrizen
-Aufgrund des fehlens von Bibliotheken zur einfachen ansteuerungen von Adafruit Style Matrizen mit HUB75 Verbindung für den Arduino Nano 33 haben wir im Projekt beschlossen den Mikrocontroller für das Peripherie Gerät gegen einen ESP32 zu Wechslen da hier umfangreiche Ressourcen aus der Open Source Community zur Steuerung von LED Matrizen zur verfügung stehen.
+Aufgrund des Fehlens von Bibliotheken zur einfachen Ansteuerungen von Adafruit Style Matrizen mit HUB75 Verbindung für den Arduino Nano 33 haben wir im Projekt beschlossen den Mikrocontroller für das Peripherie Gerät gegen einen ESP32 zu wechseln da hier umfangreiche Ressourcen aus der Open Source Community zur Steuerung von LED Matrizen zur Verfügung stehen.
 
 ### 7.3 Störsignale
-Ein Problem das wir bis zum Schluss bedauerlicherweise nicht vollständig lösen konnten, waren Anzeigefehler auf der LED Matrix. Die Ursache dieser Fehler sind vermutlich Störsignale welche bei der Verbinung des ESP32 an die Matrix, mittels Jumper Kabel entstehen. Die könnte durch die geringe Isolierung der Kabel, die Länge oder durch Wackelkontakte an der Verbindung verursacht werden. Für eine duerhaftere Umsetzung empfiehlt sich die Verwendung eines ESP32 und HUB75 Shields, wie sie in der Bibliothek von GitHub User mrfaptastic verlinkt sind.
+Ein Problem, das wir bis zum Schluss bedauerlicherweise nicht vollständig lösen konnten, waren Anzeigefehler auf der LED Matrix. Die Ursache dieser Fehler sind vermutlich Störsignale, welche bei der Verbindung des ESP32 an die Matrix, mittels Jumper Kabel entstehen. Die könnte durch die geringe Isolierung der Kabel, die Länge oder durch Wackelkontakte an der Verbindung verursacht werden. Für eine dauerhaftere Umsetzung empfiehlt sich die Verwendung eines ESP32 und HUB75 Shields, wie sie in der Bibliothek von GitHub User mrfaptastic verlinkt sind.
 
 ### 7.4 Verbindungsabbrüche zwischen Nano und ESP32
-Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinander zu halten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird solange eine Verbindung versucht aufzubauen bis es klappt.
+Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen, wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinanderzuhalten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird so lange eine Verbindung versucht aufzubauen bis es klappt.
 
 ### 7.5 Gesten werden nicht richtig erkannt
-Das Modell wurde auf Datensätzen mit einem simplen Hintergrund trainiert. Das sollte auch nicht auf kompliziertere Hintergrunde angepasst werden. Dafür reicht der Nano nicht aus. Werden die Gesten nicht richtig erkannt, sollte darauf geachtet werden ein einfarbigen Hintergrund zu nehmen.
+Das Modell wurde auf Datensätzen mit einem simplen Hintergrund trainiert. Das sollte auch nicht auf kompliziertere Hintergrunde angepasst werden. Dafür reicht der Nano nicht aus. Werden die Gesten nicht richtig erkannt, sollte darauf geachtet werden, einen einfarbigen Hintergrund zu nehmen.
 
 ## 8 Lessons Learned
 
 ### 8.1 Begrenzte Ressourcen
-BLE verbraucht mehr Ressourcen als gedacht. Das zusammen mit genauso hungrigen Prozessen wie der Klassifizierung von Bildern zu verbinden ist bei wenig RAM-Verfügbarkeit keine gute Idee. Es sollte für solche Projekte auf Komponenten mit ausreichend RAM zurückgegriffen werden. Die Konsequenz davon ist, dass ein anderes Trainingsmodell für die Daten von Nöten ist.
+BLE verbraucht mehr Ressourcen als gedacht. Das zusammen mit genauso hungrigen Prozessen wie der Klassifizierung von Bildern zu verbinden, ist bei wenig RAM-Verfügbarkeit keine gute Idee. Es sollte für solche Projekte auf Komponenten mit ausreichend RAM zurückgegriffen werden. Die Konsequenz davon ist, dass ein anderes Trainingsmodell für die Daten vonnöten ist.
 
 ### 8.2 Einfarbiger Hintergrund
-Ein einfarbiger Hintergrund lässt das Modell deutlich leichter Gesten erkennen, da die Hand das einzige auf dem Bild ist, welches vom Hintergrund abweichen kann. Das ist für eine speicherschwache Komponente, wie dem Nano, eine sehr gute Wahl.
+Ein einfarbiger Hintergrund lässt das Modell deutlich leichter Gesten erkennen, da die Hand das einzige auf dem Bild ist, welches vom Hintergrund abweichen kann. Das ist für eine speicherschwache Komponente, wie dem Nano, eine hervorragende Wahl.
 
 ### 8.3 Verschiedene IDEs
-Wir konnten herausfinden, dass VSCode grundsätzlich mehr Speicher verbrauchen lässt bei den Komponenten als wenn der Code mit beispielweise der ArduinoIDE kompiliert wurde. Wir schließen daraus, das verschiedene Compiler genutzt werden. Es gilt also Herauszufinden, welche Compiler wirklich geeignet sind für das Kompilieren von Arduino-Programmen.
+Wir konnten herausfinden, dass VSCode grundsätzlich mehr Speicher verbrauchen lässt bei den Komponenten als wenn der Code mit beispielsweise der ArduinoIDE kompiliert wurde. Wir schließen daraus, dass verschiedene Compiler genutzt werden. Es gilt also herauszufinden, welche Compiler wirklich geeignet sind für das Kompilieren von Arduino-Programmen.
 
 ### 8.4 Viele Datensätze
 Am Anfang des Projekts haben wir mit wenig Daten (~100 Bildern) gearbeitet und schlechte Ergebnisse erzielt. Nach dem Verwenden von neuen Datenquellen (fast 4000) Bildern konnte das Modell viel besser klassifizieren. Diese Daten haben verschiedene Winkel und Handtypen vereint.
