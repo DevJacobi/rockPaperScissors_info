@@ -328,9 +328,11 @@ BLE und und das Klassifizieren von Bildern zieht beträchtlich RAM. Das kann daz
 
 Zusätlich kann es helfen auf zusätzliche Print-Commands innerhalb des Codes zu verzichten, da auch diese RAM fressen.
 
-### 7.2 TODO Konsti fehlende Libraries HUB75 Matrizen
+### 7.2 Fehlende Libraries für HUB75 Matrizen
+Aufgrund des fehlens von Bibliotheken zur einfachen ansteuerungen von Adafruit Style Matrizen mit HUB75 Verbindung für den Arduino Nano 33 haben wir im Projekt beschlossen den Mikrocontroller für das Peripherie Gerät gegen einen ESP32 zu Wechslen da hier umfangreiche Ressourcen aus der Open Source Community zur Steuerung von LED Matrizen zur verfügung stehen.
 
-### 7.3 TODO Konsti Störsignale
+### 7.3 Störsignale
+Ein Problem das wir bis zum Schluss bedauerlicherweise nicht vollständig lösen konnten, waren Anzeigefehler auf der LED Matrix. Die Ursache dieser Fehler sind vermutlich Störsignale welche bei der Verbinung des ESP32 an die Matrix, mittels Jumper Kabel entstehen. Die könnte durch die geringe Isolierung der Kabel, die Länge oder durch Wackelkontakte an der Verbindung verursacht werden. Für eine duerhaftere Umsetzung empfiehlt sich die Verwendung eines ESP32 und HUB75 Shields, wie sie in der Bibliothek von GitHub User mrfaptastic verlinkt sind.
 
 ### 7.4 Verbindungsabbrüche zwischen Nano und ESP32
 Wir sind auf Problemen mit der Konnektivität zwischen dem Nano und dem ESP32 gestoßen wenn wir BLE genutzt haben. Im Normalfall sollte eine stabile Verbindung auf mehrere Meter gehalten werden können. Bei uns war das nicht der Fall und es kam zu vielen Abbrüchen und wir mussten die Komponenten nah beieinander halten. Wir empfehlen also bei Konnektivitätsproblemen die Komponenten nah beieinander zu halten. Der Code der Komponenten wurde so geschrieben, dass auf dieses Problem geachtet wird. Bei jedem Senden einer Handgeste wird solange eine Verbindung versucht aufzubauen bis es klappt.
