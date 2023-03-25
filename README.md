@@ -53,14 +53,14 @@ Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenomm
 ### 1.3 Vorgehensweise
 Das Projekt wurde in drei Arbeitspakete unterteilt:
 
-1. Machinelearning Modell trainieren
+1. Machine Learning Modell trainieren
 2. Modell als Bibliothek auf dem Nano einbinden und Bilder erstellen lassen
 3. BLE Verbindung herstellen und Grafiken erstellen und anzeigen
 
 Zuerst wurde sämtliche Hardware zusammengesteckt. Daraufhin wurde mithilfe von Edge Impulse ein Modell zur Bilderklassifikation trainiert. Genauers dazu ist in im Kapitel [Impulse Learning](#impulse-learning) erläutert. Hier wurde das Modell über mehrere Iterationen verfeinert und verkleinert, um später mit BLE gut zu harmonieren. Genutzt wurden für die Datensätze, nach anfänglichen Schwierigkeiten mit eigenen Daten, bereits existierende Datensätze aus dem Internet.
 
 ## 2 Edge Impulse
-Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für Edge-Geräte wie Mikrocontroller und Sensoren optimiert sind. Die Plattform bietet eine integrierte Umgebung zum Sammeln von Daten, zum Erstellen von Modellen und zum Bereitstellen von Inferenz-Engines direkt auf den Edge-Geräten. Dadurch können Entwickler und Ingenieure schnell und einfach Edge-Modelle für eine Vielzahl von Anwendungen erstellen, darunter Bilderkennung, Spracherkennung, Vibrationserkennung und mehr. Edge Impulse unterstützt eine breite Palette von Edge-Hardware-Plattformen und bietet auch eine Reihe von Entwicklungs-Tools und Bibliotheken für die Integration in bestehende Systeme.
+Edge Impulse ist eine Entwicklungsplattform für KI-Modelle, die speziell für Edge-Geräte wie z.B. Mikrocontroller mit Sensoren optimiert sind. Die Plattform bietet eine integrierte Umgebung zum Sammeln von Daten, zum Erstellen von Modellen und zum Bereitstellen von Inferenz-Engines direkt auf den Edge-Geräten. Dadurch können Entwickler und Ingenieure schnell und einfach Edge-Modelle für eine Vielzahl von Anwendungen erstellen, darunter Bilderkennung, Spracherkennung, Vibrationserkennung und mehr. Edge Impulse unterstützt eine breite Palette von Edge-Hardware-Plattformen und bietet auch eine Reihe von Entwicklungs-Tools und Bibliotheken für die Integration in bestehende Systeme.
 
 Wir haben diese Platform genutzt, um unser Modell mit Daten zu trainieren und zu optimieren.
 
