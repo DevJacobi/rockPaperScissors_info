@@ -256,43 +256,33 @@ Nach dem die Ideenfindung abgeschlossen ist sollten die einzelnen Elemente der B
 Gehen wir von dem Szenario aus, dass Stein gegen Schere spielt und gewinnt. Die Schere sollte in einem alleinstehenden Layer sein. Zudem sollte jede Position, der Schere ebenfalls in einem alleinstehenden Layer sein. Das selbe Prinzip sollte für den Stein angewandt werden.
 So sind in den folgenden Abbildungen die Layer der Schere und der jeweiligen Positionen zu sehen.
 
-<p align="center">
-    <img src="/pics/gif_doc/scissors_layer.png" width="30%"/> 
-</p>
-
+<img src="/pics/gif_doc/scissors_layer.png" width="30%"/> 
 
 Nach dem gleichen Prozess werden die Layer der Steine erstellt, die wie folgt abgebildet werden. 
 
-<p align="center">
-    <img src="/pics/gif_doc/rock_layer.png" width="30%"/> 
-</p>
+  <img src="/pics/gif_doc/rock_layer.png" width="30%"/> 
 
 Nachdem die Layer der Hände erstellt wurden, werden die einzelnen Layer des Übergangs zum Ergebnisstatus und das Layer des Ergebnisstatus erstellt. 
 
-<p align="center">
-    <img src="/pics/gif_doc/übergangs_ergebnis_layer.png" width="30%"/> 
-</p>
+  <img src="/pics/gif_doc/übergangs_ergebnis_layer.png" width="30%"/> 
+
 
 ### 5.4 Phase 3
 In der 3. Phase werden die Layer  zu Bildern zusammengefügt. 
 Nach dem die einzelnen Layer der Hände erstellt sind, werden die Layer der jeweils zugehörigen Positionen zusammengefügt. 
 
-<p align="center">
-    <img src="/pics/gif_doc/rock_scissors.png" width="30%"/> 
-</p>
+
+  <img src="/pics/gif_doc/rock_scissors.png" width="30%"/> 
+
 
 Im Anschluss kann der Hintergrund hinzugefügt werden. Gegebenenfalls können die Farben der einzelnen Elemente mit der Hintergrundfarbe neu abgestimmt werden. 
 
-<p align="center">
-    <img src="/pics/gif_doc/rock_scissors_farbe.png" width="30%"/> 
-</p>
+  <img src="/pics/gif_doc/rock_scissors_farbe.png" width="30%"/> 
 
 ### 5.5 Phase 4
 Im letzten Schritt werden die Bilder in die richtige Reihenfolge gebracht und ihnen werden die passenden Zeitabständen gegeben, um das fertige GIF zu erstellen.
 
-<p align="center">
-    <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
-</p>
+  <img src="/pics/gif_doc/rock_scissors_gif.png" width="50%"/> 
 
 ### 5.6 Verwendete Tools
 Zur Erstellung der Layer, Bilder und GIFs wurde die Webseite [pixelart](https://www.pixilart.com/) verwendet. 
