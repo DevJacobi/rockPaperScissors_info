@@ -169,7 +169,7 @@ Standardbibliotheken:
 - https://github.com/arduino-libraries/ArduinoBLE
 - https://github.com/arduino-libraries/Arduino_OV767X
 
-In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist die Bibliothek unter model_lib > **ei-rock-paper-scissors-arduino-1.0.25.zip**
+In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist [diese](/model_lib/ei-rock-paper-scissors-arduino-1.0.25.zip) Bibliothek 
 
 <img src="/pics/add-library.png" width="50%"/>
 
