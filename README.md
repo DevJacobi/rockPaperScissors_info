@@ -158,9 +158,6 @@ Benötigt wird für diesen Teil folgendes:
 - Das Unterrepo "nano_detection"
 - ArduinoIDE zum Flashen (Auch eine andere IDE möglich)
 
-**Hinweis**
-Das Repo ist angepasst für das Nutzen von _platform.io_ in VSCode. Wir empfehlen aber hierfür die ArduinoIDE, da hier der Compiler den Code RAM-sparender kompiliert. Deshalb gehen wir nur noch darauf ein im Folgenden. Benötigt wird aus dem Repo dementsprechend nur die _main.cpp_, welche verfügbar ist unter "nano_detection > src > main.cpp". Sollte platform.io verwendet werden kann das Repo einfach so eingebunden werden und der Arduino kann direkt geflasht werden.
-
 In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist die Bibliothek unter model_lib > **ei-rock-paper-scissors-arduino-1.0.25.zip**
 
 <img src="/pics/add-library.png" width="50%"/>
