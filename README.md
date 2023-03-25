@@ -99,15 +99,28 @@ In Edge Impulse lässt sich mit den hinterlegten Daten ein sogennanter "Impulse"
 
 #### 2.2.1 Image
 
-Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut um TODO
+Für den Schritt _Image_ wird als einziger Parameter _Color depth_ "Grayscaling" festgelegt. Das ist gut, da das Modell nicht auf Farben sondern Formen trainiert werden soll. Eine Hand darf jegliche Hautfarben haben und die Hintergrundfarbe sollte auch egal sein.
 
 #### 2.2.2 Transfer Learning
-TODO Erklärung was ist Transfer Learning; Was haben wir eingestellt
+In Edge Impulse, bezieht sich Transfer Learning darauf, wie vortrainierte neuronale Netze genutzt werden können, um spezifische Machine-Learning-Modelle für die Erkennung von bestimmten Daten (z.B. Bilder, Audio oder Sensordaten) zu erstellen.
+Statt also von Grund auf ein Modell zu trainieren, kann ein vortrainiertes Modell als Ausgangspunkt genommen und an die spezifische Anwendung angepasst werden. Durch das Hinzufügen von einigen zusätzlichen Schichten und dem Feinabstimmen der Gewichte kann das Modell speziell auf die Bedürfnisse des Anwenders zugeschnitten werden. Dies spart Zeit und Ressourcen im Vergleich zum Training eines vollständigen Modells von Grund auf neu.
+
+Nach einigem Ausprobieren waren die besten Settings für uns folgende:
 
 <img src="/pics/transfer-learning.png" height="50%"/>
 
+_Auto-balance dataset_ wurde aktiviert, da wir nur wenige Datensätze mit einem leeren Hintergrund haben. Damit sieht das Modell einen leeren Hintergrund öfter beim Trainieren.
+
+_Data augmentation_ (Daten-Erweiterung) ist eine Technik im Bereich des maschinellen Lernens, bei der neue Daten durch Transformationen der vorhandenen Daten erzeugt werden, um das Training von Machine-Learning-Modellen zu verbessern.
+
+Die Idee ist, dass durch die Anwendung von verschiedenen Transformationen auf die vorhandenen Trainingsdaten, wie z.B. Rotation, Skalierung, Spiegelung, Zuschneiden und Farbveränderungen, neue Datensätze generiert werden, die dem Modell helfen, mehr Datenvariationen zu erlernen. Durch das Hinzufügen dieser erweiterten Datensätze zum Trainingsdatensatz können die Modelle besser generalisieren und sind weniger anfällig für Überanpassung (Overfitting).
+
+Das ist bei uns hilfreich, da die Geste meist von nur einer Seite aus abgelichtet ist.
 ### 2.3 Deploy
-TODO
+In diesem Schritt wird das trainierte Modell exportiert. Wir nutzen dabei _Arduino library_, um das Modell als Bibliothek einbinden zu können. Dabei nutzen wir die optimierte Version, welche _int8_ statt _float32_ Werte nutzt. Was Speicherplatz und RAM spart. Die Bibliothek, die daraus entstanden ist, ist unter "model_lib > ei-rock-paper-scissors-arduino-1.0.25" zu finden.
+
+<img src="/pics/deploy.png" width="70%"/>
+
 ## 3 Konzept
 
 Für das Projekt gibt es ein Konzept, welches die verschiedenen Komponenten und die Kommunikation zwischen ihnen darstellt. Das ist in der folgenden Abbildung zu sehen.
