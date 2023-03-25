@@ -305,9 +305,16 @@ Alternativ kann zum Erstellen der Layer und Bilder die Webseite [piskelapp](http
 </p>
 
 ## 6 Projektergebnisse
+
+Das Projektergebnis umfasst ein trainiertes Modell zur Erkennung von Schere, Stein, Papier als Handgesten vor einem einfarbigen Hintergrund. Dieses Modell läuft auf einen _Arduino Nano 33 BLE Sense_. Das Ergebnis wird erfolgreich auf eine sehr kleine Entfernung über _BLE_ an einen _ESP32_ gesendet, welcher eine _LED Matrix_ ansteuert, um GIFs für jedes Spielergebnis darzustellen. Dabei wird für den CPU zufällig eine Handgeste ausgewählt. Die LED Matrix stellt dabei manchmal die Bilder verzerrt da. Durch den kleinen Speicherplatz ist unser trainiertes Modell nicht gut im Erkennen der Geste _Schere_. Der Rest kann sehr gut erkannt werden.
+
 ![](/gifs/setup-gif.gif)
-<img src="/pics/setup-idle.jpeg" width="50%"/>
-<img src="/pics/setup-above.jpeg" width="50%"/>
+<img src="/pics/setup-idle.jpeg" width="300px"/>
+<img src="/pics/setup-above.jpeg" width="300px"/>
+<img src="/pics/abschlusspräsi-1.jpeg" width="300px"/>
+<img src="/pics/abschlusspräsi-2.jpeg" width="300px"/>
+<img src="/pics/abschlusspräsi-3.jpeg" width="300px"/>
+<img src="/pics/abschlusspräsi-4.jpeg" width="300px"/>
 
 ## 7 Troubleshooting
 
