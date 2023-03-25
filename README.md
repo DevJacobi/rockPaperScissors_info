@@ -7,7 +7,7 @@
     - [1.3 Vorgehensweise](#13-vorgehensweise)
   - [2 Edge Impulse](#2-edge-impulse)
     - [2.1 Datenacquisation](#21-datenacquisation)
-    - [2.2 Impulse Learning](#22-impulse-learning)
+    - [2.2 Impulse Design](#22-impulse-design)
       - [2.2.1 Image](#221-image)
       - [2.2.2 Transfer Learning](#222-transfer-learning)
       - [2.3 Deploy](#23-deploy)
@@ -40,7 +40,7 @@
 ## 1 Einführung
 
 ### 1.1 Motivation
-Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin gab es die Möglichkeit in zwei Wochen ein Machinelearning Projekt mit Arduinobauteilen aufzusetzen. Dafür haben wir uns für Bilderkennung, LED Matrizen und der Kommunikation verschiedener Boards über Bluetooth Low Energy (BLE) interessiert. TODO noch mehr ergänzen
+Im Rahmen des Moduls "Wissensmanagement" an der HTW Berlin hatten wir die Aufgabe in zwei Wochen ein Machine Learning Projekt mit Arduino Bauteilen umzusetzen. Bei der Projektfindung haben wir uns für Bildklassifizierung, LED Matrizen und der Kommunikation zwischen Mikrocontrollern über Bluetooth Low Energy (BLE) interessiert. Nach etwas Brainstomrming kamen wir auf die Idee die verschidenen Aspekte in einen Schere, Stein, Papier Computer zu integrieren. TODO noch mehr ergänzen
 
 ### 1.2 Zielstellung
 Durch eine Kamera sollen die Handgesten _Schere_, _Stein_ und _Papier_ aufgenommen werden. Diese sollen dann richtig klassifiziert werden. Das Modell für die Klassifizierung soll in Edge Impulse mit verschiedenen Datensätzen trainiert werden. Die dann richtig erkannte Geste soll über BLE an einen ESP32 gesendet werden. Dieser wählt für den Computer zufällig eine Geste aus und entscheidet, wer gewinnt. Die Auswahl vom Mensch und Computer sowie das Ergebnis sollen dann grafisch auf einer LED-Matrix dargestellt werden.
@@ -92,7 +92,7 @@ Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 | CGI                | Papier       | <img src="/pics/paper-cgi-example.png" width="30%"/>                 |
 | Eigen              | Hintergrund  | <img src="/pics/nothing-example.png" width="30%"/>                   |
 
-### 2.2 Impulse Learning
+### 2.2 Impulse Design
 TODO Erklärung was ist Impulse Learning
 
 <img src="/pics/impulse-learning.png" width="70%"/>
