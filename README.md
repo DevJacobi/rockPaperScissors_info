@@ -93,7 +93,7 @@ Die Daten wurden aufgeteilt nach 80% Training und 20% Test.
 | Eigen              | Hintergrund  | <img src="/pics/nothing-example.png" width="30%"/>                   |
 
 ### 2.2 Impulse Design
-TODO Erklärung was ist Impulse Learning
+In Edge Impulse lässt sich mit den hinterlegten Daten ein sogennanter "Impulse" konfigurieren bei dem, abhängig von den Datentypen, verschiedene Einstellungen zur Vorverarbeitung vorgenommen werden können. Im Fall von Bildern z.B. die Vereinheitlichung der Größe der Bilder. Weiter wird die Feature Extraktion und die Benennug der Variablen hier vorgenommen. Anschließend wird der Learning Schritt festgelegt und die Input und Output Feature definiert.
 
 <img src="/pics/impulse-learning.png" width="70%"/>
 
