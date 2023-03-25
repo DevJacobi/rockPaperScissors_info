@@ -141,7 +141,7 @@ Die Werte werden dabei in Bytes gemapped, um diese über BLE senden zu können. 
 
 ### 4.1 Nano 33 Setup
 
-#### 4.1.1Hardware
+#### 4.1.1 Hardware
 - Arduino Nano 33 BLE Sense Lite Board
 - Arduino Tiny Machine Learning Shield
 - ArduCam OV7675
@@ -157,6 +157,10 @@ Benötigt wird für diesen Teil folgendes:
 - Arduino Bibliothek aus _Edge Impulse_ (in diesem Repo unter: model_lib > ei-rock-paper-scissors-arduino-1.0.25.zip)
 - Das Unterrepo "nano_detection"
 - ArduinoIDE zum Flashen (Auch eine andere IDE möglich)
+
+Standardbibliotheken:
+- https://github.com/arduino-libraries/ArduinoBLE
+- https://github.com/arduino-libraries/Arduino_OV767X
 
 In der ArduinoIDE sollte ein neuer Sketch angelegt werden. Der Inhalt der _main.cpp_ sollte dann in den Editor kopiert werden. Dann sollte über **Sketch > Include Library > Add .ZIP Library** die Bibliothek für das Modell hinzugefügt werden. Das ist die Bibliothek unter model_lib > **ei-rock-paper-scissors-arduino-1.0.25.zip**
 
