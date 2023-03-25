@@ -363,7 +363,7 @@ Ein einfarbiger Hintergrund lässt das Modell deutlich leichter Gesten erkennen,
 Wir konnten herausfinden, dass VSCode grundsätzlich mehr Speicher verbrauchen lässt bei den Komponenten als wenn der Code mit beispielweise der ArduinoIDE kompiliert wurde. Wir schließen daraus, das verschiedene Compiler genutzt werden. Es gilt also Herauszufinden, welche Compiler wirklich geeignet sind für das Kompilieren von Arduino-Programmen.
 
 ### 8.4 Viele Datensätze
-Am Anfang des Projekts haben wir mit wenig Daten (~100 Bildern) gearbeitet und schlechte Ergebnisse erzielt. Nach dem Verwenden von neuen Datenquellen (~fast 4000) Bildern konnte das Modell viel besser klassifizieren. Diese Daten haben verschiedene Winkel und Handtypen vereint.
+Am Anfang des Projekts haben wir mit wenig Daten (~100 Bildern) gearbeitet und schlechte Ergebnisse erzielt. Nach dem Verwenden von neuen Datenquellen (fast 4000) Bildern konnte das Modell viel besser klassifizieren. Diese Daten haben verschiedene Winkel und Handtypen vereint.
 
 ### 8.5 Möglichkeiten der LED-Matrix beachten
 Beim Erstellen der GIFs ist aufgefallen, dass nicht alle Farben genauso gut auf der Matrix aussehen wie beim Erstellen. Die Farbtiefe der Matrix ist eingeschränkt. Dabei sollte auf Kontraste geachtet werden.
